@@ -3,8 +3,7 @@ import TeamMemeberCard from './TeamMemeberCard';
 import useFetch from '../../hooks/useFetch';
 const OurServices = () => {
 
-    const { state: team, isLoading } = useFetch('http://localhost:5000/team')
-
+    const { state: team, isLoading } = useFetch('http://localhost:3030/team')
 
     return (
         <>

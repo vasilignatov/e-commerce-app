@@ -1,0 +1,48 @@
+.auth_overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: block;
+    /* Hidden by default */
+    width: 100vw;
+    /* Full width (cover the whole page) */
+    height: 100vh;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.779);
+    /* Black background with opacity */
+    z-index: 1000;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.authBtn {
+    background-color: #d33b33;
+    border-radius: 5px;
+    border: none;
+    display: block;
+    width: 100%;
+    margin-top:2px;
+    color: #fff;
+}
+
+.authBtn:hover {
+    color: #fff;
+    background-color: #23272b;
+    border-color: #1d2124
+}
+
+.authBtn:focus {
+    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
+}

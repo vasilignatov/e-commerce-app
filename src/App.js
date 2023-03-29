@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs/AboutUs.js';
 import Contacts from './components/Contacts/Contacts.js';
 import OurServices from './components/OurServices/OurServices.js';
 import { Routes, Route } from 'react-router-dom';
+import Auth from './components/Auth/Auth.js';
 
 function App() {
   return (

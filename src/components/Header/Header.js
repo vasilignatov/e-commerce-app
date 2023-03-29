@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
+// import {} from 'react';
+import Auth from '../Auth/Auth.js';
 
 const Header = () => {
+
+
     return (
         <header class="main-header">
             {/* <!-- Start Navigation --> */}
@@ -12,7 +16,7 @@ const Header = () => {
                             <i class="fa fa-bars"></i>
                         </button>
                         <Link class="navbar-brand" to="/">
-                            <img src="images/logo.png" class="logo" alt="Site Logo" />
+                            <img src="https://ik.imagekit.io/8brpz6ecl/e-commerce-react/logo.png?updatedAt=1680077299158" class="logo" alt="Site Logo" />
                         </Link>
                     </div>
                     {/* <!-- End Header Navigation --> */}
@@ -112,20 +116,42 @@ const Header = () => {
                     {/* <!-- Start Atribute Navigation --> */}
                     <div class="attr-nav">
                         <ul>
-                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+
+                            <li class="search">
+                                <a href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+
                             <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-bag"></i>
                                 <span class="badge">3</span>
                             </a></li>
+
+                            <li class="prifile">
+                                <a href="/profile">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li class="auth">
+                                <a href="/auth">
+                                    Login/Register
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                     {/* <!-- End Atribute Navigation --> */}
                 </div>
+
+
                 {/* <!-- Start Side Menu --> */}
                 <div class="side">
                     <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                     <li class="cart-box">
                         <ul class="cart-list">
+
                             <li>
                                 <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">Delica omtantur </a></h6>
