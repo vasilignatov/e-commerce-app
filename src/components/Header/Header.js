@@ -34,7 +34,7 @@ const Header = () => {
                             </li>
 
                             <li class="dropdown megamenu-fw">
-                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
+                                <Link to="products" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</Link>
                                 <ul class="dropdown-menu megamenu-content" role="menu">
                                     <li>
                                         <div class="row">

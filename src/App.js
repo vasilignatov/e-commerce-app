@@ -6,6 +6,8 @@ import Contacts from './components/Contacts/Contacts.js';
 import OurServices from './components/OurServices/OurServices.js';
 import { Routes, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth.js';
+import Products from './components/Products/Products.js';
+import Details from './components/Details/Details.js';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/services" element={<OurServices />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Details />} />
       </Routes>
 
       <Footer />
