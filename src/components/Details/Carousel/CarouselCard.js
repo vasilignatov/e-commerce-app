@@ -1,6 +1,6 @@
-const CarouselCard = (imageUrl) => {
+const CarouselCard = ({imageUrl, i, activeIndex}) => {
     return (
-        <div className="carousel-item">
+        <div className={ i == activeIndex ? 'carousel-item active' : 'carousel-item'}>
             <img
                 className="d-block w-100"
                 src={imageUrl}
