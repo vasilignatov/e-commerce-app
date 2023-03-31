@@ -6,42 +6,42 @@ const Header = () => {
 
 
     return (
-        <header class="main-header">
+        <header className="main-header">
             {/* <!-- Start Navigation --> */}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-                <div class="container">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+                <div className="container">
                     {/* <!-- Start Header Navigation --> */}
-                    <div class="navbar-header">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
+                    <div className="navbar-header">
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                            <i className="fa fa-bars"></i>
                         </button>
-                        <Link class="navbar-brand" to="/">
-                            <img src="https://ik.imagekit.io/8brpz6ecl/e-commerce-react/logo.png?updatedAt=1680077299158" class="logo" alt="Site Logo" />
+                        <Link className="navbar-brand" to="/">
+                            <img src="https://ik.imagekit.io/8brpz6ecl/e-commerce-react/logo.png?updatedAt=1680077299158" className="logo" alt="Site Logo" />
                         </Link>
                     </div>
                     {/* <!-- End Header Navigation --> */}
 
                     {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                    <div className="collapse navbar-collapse" id="navbar-menu">
+                        <ul className="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
 
-                            <li class="nav-item active">
-                                <Link class="nav-link" to="/">Home</Link>
+                            <li className="nav-item active">
+                                <Link className="nav-link" to="/">Home</Link>
                             </li>
 
-                            <li class="nav-item">
-                                <Link class="nav-link" to="about">About Us</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="about">About Us</Link>
                             </li>
 
-                            <li class="dropdown megamenu-fw">
-                                <Link to="products" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</Link>
-                                <ul class="dropdown-menu megamenu-content" role="menu">
+                            <li className="dropdown megamenu-fw">
+                                <Link to="products" className="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</Link>
+                                <ul className="dropdown-menu megamenu-content" role="menu">
                                     <li>
-                                        <div class="row">
-                                            <div class="col-menu col-md-3">
-                                                <h6 class="title">Top</h6>
-                                                <div class="content">
-                                                    <ul class="menu-col">
+                                        <div className="row">
+                                            <div className="col-menu col-md-3">
+                                                <h6 className="title">Top</h6>
+                                                <div className="content">
+                                                    <ul className="menu-col">
                                                         <li><a href="shop.html">Jackets</a></li>
                                                         <li><a href="shop.html">Shirts</a></li>
                                                         <li><a href="shop.html">Sweaters & Cardigans</a></li>
@@ -50,10 +50,10 @@ const Header = () => {
                                                 </div>
                                             </div>
                                             {/* <!-- end col-3 --> */}
-                                            <div class="col-menu col-md-3">
-                                                <h6 class="title">Bottom</h6>
-                                                <div class="content">
-                                                    <ul class="menu-col">
+                                            <div className="col-menu col-md-3">
+                                                <h6 className="title">Bottom</h6>
+                                                <div className="content">
+                                                    <ul className="menu-col">
                                                         <li><a href="shop.html">Swimwear</a></li>
                                                         <li><a href="shop.html">Skirts</a></li>
                                                         <li><a href="shop.html">Jeans</a></li>
@@ -62,10 +62,10 @@ const Header = () => {
                                                 </div>
                                             </div>
                                             {/* <!-- end col-3 --> */}
-                                            <div class="col-menu col-md-3">
-                                                <h6 class="title">Clothing</h6>
-                                                <div class="content">
-                                                    <ul class="menu-col">
+                                            <div className="col-menu col-md-3">
+                                                <h6 className="title">Clothing</h6>
+                                                <div className="content">
+                                                    <ul className="menu-col">
                                                         <li><a href="shop.html">Top Wear</a></li>
                                                         <li><a href="shop.html">Party wear</a></li>
                                                         <li><a href="shop.html">Bottom Wear</a></li>
@@ -73,10 +73,10 @@ const Header = () => {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="col-menu col-md-3">
-                                                <h6 class="title">Accessories</h6>
-                                                <div class="content">
-                                                    <ul class="menu-col">
+                                            <div className="col-menu col-md-3">
+                                                <h6 className="title">Accessories</h6>
+                                                <div className="content">
+                                                    <ul className="menu-col">
                                                         <li><a href="shop.html">Bags</a></li>
                                                         <li><a href="shop.html">Sunglasses</a></li>
                                                         <li><a href="shop.html">Fragrances</a></li>
@@ -90,9 +90,9 @@ const Header = () => {
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                                <ul class="dropdown-menu">
+                            <li className="dropdown">
+                                <a href="#" className="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                                <ul className="dropdown-menu">
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
                                     <li><a href="my-account.html">My Account</a></li>
@@ -101,12 +101,12 @@ const Header = () => {
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <Link class="nav-link" to="services">Our Service</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="services">Our Service</Link>
                             </li>
 
-                            <li class="nav-item">
-                                <Link class="nav-link" to="contacts">Contact Us</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="contacts">Contact Us</Link>
                             </li >
 
                         </ul>
@@ -114,27 +114,27 @@ const Header = () => {
                     {/* <!-- /.navbar-collapse --> */}
 
                     {/* <!-- Start Atribute Navigation --> */}
-                    <div class="attr-nav">
+                    <div className="attr-nav">
                         <ul>
 
-                            <li class="search">
+                            <li className="search">
                                 <a href="#">
-                                    <i class="fa fa-search"></i>
+                                    <i className="fa fa-search"></i>
                                 </a>
                             </li>
 
-                            <li class="side-menu"><a href="#">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
+                            <li className="side-menu"><a href="#">
+                                <i className="fa fa-shopping-bag"></i>
+                                <span className="badge">3</span>
                             </a></li>
 
-                            <li class="prifile">
+                            <li className="prifile">
                                 <a href="/profile">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i className="fa fa-user" aria-hidden="true"></i>
                                 </a>
                             </li>
 
-                            <li class="auth">
+                            <li className="auth">
                                 <a href="/auth">
                                     Login/Register
                                 </a>
@@ -147,29 +147,29 @@ const Header = () => {
 
 
                 {/* <!-- Start Side Menu --> */}
-                <div class="side">
-                    <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                    <li class="cart-box">
-                        <ul class="cart-list">
+                <div className="side">
+                    <a href="#" className="close-side"><i className="fa fa-times"></i></a>
+                    <li className="cart-box">
+                        <ul className="cart-list">
 
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                                <a href="#" className="photo"><img src="images/img-pro-01.jpg" className="cart-thumb" alt="" /></a>
                                 <h6><a href="#">Delica omtantur </a></h6>
-                                <p>1x - <span class="price">$80.00</span></p>
+                                <p>1x - <span className="price">$80.00</span></p>
                             </li>
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                                <a href="#" className="photo"><img src="images/img-pro-02.jpg" className="cart-thumb" alt="" /></a>
                                 <h6><a href="#">Omnes ocurreret</a></h6>
-                                <p>1x - <span class="price">$60.00</span></p>
+                                <p>1x - <span className="price">$60.00</span></p>
                             </li>
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                                <a href="#" className="photo"><img src="images/img-pro-03.jpg" className="cart-thumb" alt="" /></a>
                                 <h6><a href="#">Agam facilisis</a></h6>
-                                <p>1x - <span class="price">$40.00</span></p>
+                                <p>1x - <span className="price">$40.00</span></p>
                             </li>
-                            <li class="total">
-                                <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                                <span class="float-right"><strong>Total</strong>: $180.00</span>
+                            <li className="total">
+                                <a href="#" className="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                                <span className="float-right"><strong>Total</strong>: $180.00</span>
                             </li>
                         </ul>
                     </li>
