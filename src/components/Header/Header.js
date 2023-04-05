@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 // import {} from 'react';
 import Auth from '../Auth/Auth.js';
-
+import './Header.css';
 const Header = () => {
 
 
@@ -128,10 +128,21 @@ const Header = () => {
                                 <span className="badge">3</span>
                             </a></li>
 
-                            <li className="prifile">
+                            <li className="dropdown">
                                 <a href="/profile">
                                     <i className="fa fa-user" aria-hidden="true"></i>
                                 </a>
+                                <ul className="dropdown-menu">
+
+                                    {/* TODO: Style div */}
+                                    <div className="profile-icon">
+                                        <p>Welcome, Vasil</p>
+                                        <a >Log Out</a>
+                                    </div>
+                                    <li><a href="wishlist.html">My Orders</a></li>
+                                    <li><a href="my-account.html">My Account</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                </ul>
                             </li>
 
                             <li className="auth">
