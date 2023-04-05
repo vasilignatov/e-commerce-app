@@ -6,11 +6,13 @@ import useFetch from '../../hooks/useFetch.js';
 import Carousel from './Carousel/Carousel.js';
 import ProductDetails from './ProductDetails/ProductDetails.js';
 import ProductContext from '../../contexts/ProductContext.js';
+import FeaturedProducts from '../Common/FeaturedProducts.js';
 
 const Details = () => {
     const { id } = useParams();
     const { state: product, isLoading } = useFetch(endpoints.getProductById + id);
-    console.log(<Carousel />);
+    console.log(product);
+
     return (
         <ProductContext.Provider value={{ product, isLoading }}>
             <div className="shop-detail-box-main">
@@ -22,9 +24,12 @@ const Details = () => {
                     </div>
 
 
+                    <FeaturedProducts />
+
+
 
                     {/* FEATURED PRODUCTS SECTION */}
-                    <div className="row my-5">
+                    {/* <div className="row my-5">
                         <div className="col-lg-12">
                             <div className="title-all text-center">
                                 <h1>Featured Products</h1>
@@ -32,10 +37,10 @@ const Details = () => {
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
                                     amet lacus enim.
                             </p>
-                            </div>
+                            </div> */}
 
                             {/* FEATURED PRODUCTS ITEMS*/}
-                            <div className="featured-products-box owl-carousel owl-theme">
+                            {/* <div className="featured-products-box owl-carousel owl-theme">
                                 <div className="item">
                                     <div className="products-single fix">
                                         <div className="box-img-hover">
@@ -454,7 +459,7 @@ const Details = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </ProductContext.Provider>

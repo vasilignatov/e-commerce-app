@@ -1,0 +1,28 @@
+#dropdown-button-dark-example2 {
+    background-color: #d33b33;
+    border-radius: 0 !important;
+}
+
+.dropdown-menu.show.dropdown-menu-dark>.dropdown-item.active {
+    background-color: white !important;
+    color: black;
+    font-weight: bold;
+}
+
+.dropdown-menu.show.dropdown-menu-dark>.dropdown-item {
+    background-color: white !important;
+    color: grey;
+}
+
+a.subcategory:hover,
+a.category:hover {
+    color: black !important;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-transition: .5s all ease-in-out;
+}
+
+a.subcategory,
+a.category {
+    /* -webkit-transition: .5s all ease-in-out; */
+}
