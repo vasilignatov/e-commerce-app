@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import ProductContext from '../../contexts/ProductContext.js';
+import ProductContext from '../../../contexts/ProductContext.js';
 
 const ProductDetails = () => {
 
-    const product = useContext(ProductContext);
-
+    const { product } = useContext(ProductContext);
+    console.log(product);
     return (
         <div className="col-xl-7 col-lg-7 col-md-6">
             <div className="single-product-details">
@@ -28,14 +28,13 @@ const ProductDetails = () => {
                                 id="basic"
                                 className="selectpicker show-tick form-control"
                             >
-                                <option value={0}>Size</option>
-                                <option value={0}>S</option>
-                                <option value={1}>M</option>
-                                <option value={1}>L</option>
-                                <option value={1}>XL</option>
-                                <option value={1}>XXL</option>
-                                <option value={1}>3XL</option>
-                                <option value={1}>4XL</option>
+
+                                {
+                                    product.sizesAvailable.map(s => {
+                                        <option value={s}>{s}</option>
+                                    })
+                                }
+                                
                             </select>
                         </div>
                     </li>

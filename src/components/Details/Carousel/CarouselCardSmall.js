@@ -1,5 +1,4 @@
-const CarouselCard = ({imageUrl, i, activeIndex}) => {
-    console.log(i);
+const CarouselCardSmall = ({imageUrl, i, activeIndex}) => {
     return (
         <li 
             data-target="#carousel-example-1" 
@@ -15,4 +14,4 @@ const CarouselCard = ({imageUrl, i, activeIndex}) => {
     )
 }
 
-export default CarouselCard;
+export default CarouselCardSmall;

@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { useContext } from 'react';
+import { useState, useContext} from 'react';
 
-import CarouselCard from './CarouselCard.js';
-import CarouselCardSmall from './Carousel/CarouselCardSmall.js';
+import CarouselCard from './CarouselCard';
+import CarouselCardSmall from './CarouselCardSmall.js';
 
-import ProductContext from '../../contexts/ProductContext.js';
-
-
+import ProductContext from '../../../contexts/ProductContext.js';
 
 const Carousel = () => {
 
+    const { product, isLoading } = useContext(ProductContext);
     const [activeIndex, setActiveIndex] = useState(0);
 
+    console.log(product);
+    
     function activeIndexHandler(e) {
         const target = e.target;
         if (target.dataset.slide == 'prev' || target.className == 'fa fa-angle-left') {
