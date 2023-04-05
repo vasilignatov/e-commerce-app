@@ -28,6 +28,7 @@ const Carousel = () => {
     return (
         <div className="col-xl-5 col-lg-5 col-md-6" >
             <div id="carousel-example-1" onClick={activeIndexHandler} className="single-product-slider carousel slide" data-ride="carousel">
+                
                 <div className="carousel-inner" role="listbox">
                     {
                         isLoading
