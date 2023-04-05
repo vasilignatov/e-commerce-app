@@ -1,8 +1,15 @@
+import { useContext } from 'react';
+import { AllProductsContext } from '../../../contexts/AllProductsContext.js';
+
 const ProductFilterRow = () => {
+
+    const products = useContext(AllProductsContext);
+
+
     return (
         <div className="product-item-filter row">
             <div className="col-12 col-sm-8 text-center text-sm-left">
-                <div className="toolbar-sorter-right">
+                {/* <div className="toolbar-sorter-right">
                     <span>Sort by </span>
                     <select
                         id="basic"
@@ -15,8 +22,14 @@ const ProductFilterRow = () => {
                         <option value={3}>Low Price → High Price</option>
                         <option value={4}>Best Selling</option>
                     </select>
-                </div>
-                <p>Showing all 4 results</p>
+                </div> */}
+                {
+                    products.length > 0
+                        ? products.length === 1
+                            ? <p>Showing 1 result</p>
+                            : <p>Showing all { products.length } results</p>
+                        : <p>No results to show</p>
+                }
             </div>
             <div className="col-12 col-sm-4 text-center text-sm-right">
                 <ul className="nav nav-tabs ml-auto">
