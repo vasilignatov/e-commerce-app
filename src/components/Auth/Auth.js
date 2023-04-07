@@ -1,11 +1,24 @@
+import { useContext, use } from 'react';
+import { AuthPopupXontext } from '../../contexts/AuthPopupContext.js';
+
 import styles from './Auth.module.css';
 import './Auth.css';
 
-const Auth = () => {
+const Auth = ({
+    setIsVisibleHandler
+}) => {
+
+    function onCloseModal(e) {
+        console.log(e.target.id);
+        if (e.target.id == 'auth-overlay') {
+            setIsVisibleHandler();
+        }
+    }
+
     return (
-        <div>
-            <div className={styles.auth_overlay}>
-                <div className={styles.center}>
+        <>
+            <div className={styles.auth_overlay} onClick={onCloseModal} id='auth-overlay'>
+                <div className={styles.center} >
                     <div className="d-flex justify-content-center align-items-center" >
                         <div className="card">
                             <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -68,27 +81,27 @@ const Auth = () => {
                                     <div className="form px-4">
                                         <input
                                             type="text"
-                                            name=""
+                                            name="name"
                                             className="form-control"
                                             placeholder="Name"
                                         />
                                         <input
                                             type="text"
-                                            name=""
+                                            name="email"
                                             className="form-control"
                                             placeholder="Email"
                                         />
                                         <input
                                             type="text"
-                                            name=""
+                                            name="password"
                                             className="form-control"
-                                            placeholder="Phone"
+                                            placeholder="Password"
                                         />
                                         <input
                                             type="text"
-                                            name=""
+                                            name="rePass"
                                             className="form-control"
-                                            placeholder="Password"
+                                            placeholder="Repeat Password"
                                         />
                                         <button className={styles.authBtn}>Signup</button>
                                     </div>
@@ -98,7 +111,7 @@ const Auth = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
