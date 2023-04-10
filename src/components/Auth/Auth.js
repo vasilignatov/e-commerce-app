@@ -4,15 +4,23 @@ import { AuthPopupXontext } from '../../contexts/AuthPopupContext.js';
 import styles from './Auth.module.css';
 import './Auth.css';
 
+
+
 const Auth = ({
     setIsVisibleHandler
 }) => {
 
     function onCloseModal(e) {
-        console.log(e.target.id);
         if (e.target.id == 'auth-overlay') {
             setIsVisibleHandler();
         }
+    }
+
+    function onSubmit(e) {
+        e.preventDefault(e);
+
+        const formData = Object.fromEntries(new FormData(e.currentTarget));
+        console.log(formData);
     }
 
     return (
@@ -49,6 +57,9 @@ const Auth = ({
                                     </a>
                                 </li>
                             </ul>
+                           
+                            <p className="">Wrong password</p>
+
                             <div className="tab-content" id="pills-tabContent">
                                 <div
                                     className="tab-pane fade show active"
@@ -78,7 +89,7 @@ const Auth = ({
                                     role="tabpanel"
                                     aria-labelledby="pills-profile-tab"
                                 >
-                                    <div className="form px-4">
+                                    <form className="form px-4" onSubmit={onSubmit}>
                                         <input
                                             type="text"
                                             name="name"
@@ -103,8 +114,8 @@ const Auth = ({
                                             className="form-control"
                                             placeholder="Repeat Password"
                                         />
-                                        <button className={styles.authBtn}>Signup</button>
-                                    </div>
+                                        <button type="submit" className={styles.authBtn}>Signup</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
