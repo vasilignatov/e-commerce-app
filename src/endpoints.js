@@ -4,4 +4,6 @@ export const endpoints = {
     getProducts: `${host}/products/`,
     getProductById: `${host}/products/`,
     createProduct: `${host}/products/`,
+    login: `${host}/users/login`,
+    register: `${host}/users/register`,
 }

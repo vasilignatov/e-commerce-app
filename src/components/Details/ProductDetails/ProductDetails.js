@@ -8,9 +8,6 @@ const ProductDetails = () => {
 
     const { product, isLoading } = useContext(ProductContext);
     const [currentSize, setCurrentSize] = useState('Choose your size');
-    console.log(product);
-
-
 
     function onSizeClickHandler(e) {
         e.preventDefault();
