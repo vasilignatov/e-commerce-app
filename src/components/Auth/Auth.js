@@ -9,6 +9,7 @@ import './Auth.css';
 const Auth = ({
     setIsVisibleHandler
 }) => {
+    const [error, setError] = useState(null);
 
     function onCloseModal(e) {
         if (e.target.id == 'auth-overlay') {
@@ -16,7 +17,28 @@ const Auth = ({
         }
     }
 
-    function onSubmit(e) {
+    function onSubmitLogin(e) {
+        e.preventDefault(e);
+
+        const { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+
+        if (email == '' || password == '') {
+            return setError({ message: 'All fields are required!' });
+        }
+
+        authService.login(email, password)
+            .then((userData) => {
+                setError(null);
+                onLogin(userData);
+                setIsVisibleHandler();
+                navigate('/')
+            })
+            .catch(err => {
+                console.log('Error: ', err);
+                setError(err.message);
+            });
+    }
+
         e.preventDefault(e);
 
         const formData = Object.fromEntries(new FormData(e.currentTarget));
@@ -60,6 +82,12 @@ const Auth = ({
                            
                             <p className="">Wrong password</p>
 
+                            {
+                                error
+                                    ? <p className={styles.error_msg}>{error.message}</p>
+                                    : ''
+                            }
+
                             <div className="tab-content" id="pills-tabContent">
                                 <div
                                     className="tab-pane fade show active"
@@ -68,6 +96,7 @@ const Auth = ({
                                     aria-labelledby="pills-home-tab"
                                 >
                                     <div className="form px-4 pt-5">
+                                    <form className="form px-4 pt-4" onSubmit={onSubmitLogin}>
                                         <input
                                             type="text"
                                             name=""
