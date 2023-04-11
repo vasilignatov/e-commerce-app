@@ -24,6 +24,13 @@ const Header = () => {
         }
     }
 
+    async function onLogoutHandler(e) {
+        e.preventDefault();
+        onLogout();
+        await authService.logout();
+        navigate('/');
+    }
+
     return (
         <>
             {
