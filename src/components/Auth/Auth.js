@@ -1,15 +1,17 @@
-import { useContext, use } from 'react';
-import { AuthPopupXontext } from '../../contexts/AuthPopupContext.js';
-
 import styles from './Auth.module.css';
 import './Auth.css';
 
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext.js'
+import * as authService from '../../services/authService.js';
 
 const Auth = ({
     setIsVisibleHandler
 }) => {
+    const navigate = useNavigate();
     const [error, setError] = useState(null);
+    const { onLogin, user } = useAuth();
 
     function onCloseModal(e) {
         if (e.target.id == 'auth-overlay') {
@@ -39,10 +41,33 @@ const Auth = ({
             });
     }
 
+    function onSubmitRegister(e) {
         e.preventDefault(e);
 
-        const formData = Object.fromEntries(new FormData(e.currentTarget));
-        console.log(formData);
+        const { username, password, email, rePass } = Object.fromEntries(new FormData(e.currentTarget));
+        console.log(username, password, rePass, email);
+        if (username == '' || password == '' || email == '' || rePass == '') {
+            return setError({ message: 'All fields are required!' });
+        } else if (username.length < 3 || password.length < 3) {
+            return setError({ message: 'Username or password must be at least 3 characters long!' });
+        } else if (password !== rePass) {
+            return setError({ message: 'Passwords missmatch!' })
+        } else if (email.length < 5 && !email.includes('@')) {
+            return setError({ message: 'Invalid email adress!' });
+        }
+
+
+        authService.register()
+            .then(userData => {
+                console.log(userData);
+                setError(null);
+                onLogin(userData);
+                navigate('/');
+            })
+            .catch(err => {
+                console.log('Error: ', err);
+                setError(err.message);
+            })
     }
 
     return (
@@ -79,8 +104,6 @@ const Auth = ({
                                     </a>
                                 </li>
                             </ul>
-                           
-                            <p className="">Wrong password</p>
 
                             {
                                 error
@@ -95,22 +118,21 @@ const Auth = ({
                                     role="tabpanel"
                                     aria-labelledby="pills-home-tab"
                                 >
-                                    <div className="form px-4 pt-5">
                                     <form className="form px-4 pt-4" onSubmit={onSubmitLogin}>
                                         <input
                                             type="text"
-                                            name=""
+                                            name="email"
                                             className="form-control"
-                                            placeholder="Email or Phone"
+                                            placeholder="Email"
                                         />
                                         <input
-                                            type="text"
-                                            name=""
+                                            type="password"
+                                            name="password"
                                             className="form-control"
                                             placeholder="Password"
                                         />
-                                        <button className={styles.authBtn}>Login</button>
-                                    </div>
+                                        <button type='submit' className={styles.authBtn}>Login</button>
+                                    </form>
                                 </div>
                                 <div
                                     className="tab-pane fade"
@@ -118,10 +140,10 @@ const Auth = ({
                                     role="tabpanel"
                                     aria-labelledby="pills-profile-tab"
                                 >
-                                    <form className="form px-4" onSubmit={onSubmit}>
+                                    <form className="form px-4" onSubmit={onSubmitRegister}>
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="username"
                                             className="form-control"
                                             placeholder="Name"
                                         />
@@ -132,13 +154,13 @@ const Auth = ({
                                             placeholder="Email"
                                         />
                                         <input
-                                            type="text"
+                                            type="password"
                                             name="password"
                                             className="form-control"
                                             placeholder="Password"
                                         />
                                         <input
-                                            type="text"
+                                            type="password"
                                             name="rePass"
                                             className="form-control"
                                             placeholder="Repeat Password"
