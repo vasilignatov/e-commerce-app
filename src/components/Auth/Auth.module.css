@@ -46,3 +46,8 @@
 .authBtn:focus {
     box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
 }
+
+.error_msg {
+    text-align: center;
+    color: red;
+}
