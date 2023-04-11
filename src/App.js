@@ -5,11 +5,11 @@ import AboutUs from './components/AboutUs/AboutUs.js';
 import Contacts from './components/Contacts/Contacts.js';
 import OurServices from './components/OurServices/OurServices.js';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Auth from './components/Auth/Auth.js';
 import Products from './components/Products/Products.js';
 import Details from './components/Details/Details.js';
 
 function App() {
+
   return (
     <>
       <Header />
