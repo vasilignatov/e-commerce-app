@@ -1,9 +1,16 @@
-import { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import Auth from '../Auth/Auth.js';
 import './Header.css';
+
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import Auth from '../Auth/Auth.js';
+import { useAuth } from '../../contexts/AuthContext.js';
+import * as authService from '../../services/authService.js';
+
 const Header = () => {
 
+    const navigate = useNavigate();
+    const { user, onLogout } = useAuth();
     const [isVisible, setIsVisible] = useState(false);
 
     function setIsVisibleHandler() {
@@ -11,6 +18,7 @@ const Header = () => {
     }
 
     function onAuthClickHandler(e) {
+        e.preventDefault();
         if (e.target.tagName == 'A' || e.target.tagName == 'LI') {
             setIsVisible(true);
         }
@@ -23,6 +31,7 @@ const Header = () => {
                     ? <Auth setIsVisibleHandler={setIsVisibleHandler} />
                     : ''
             }
+
             <header className="main-header">
                 {/* <!-- Start Navigation --> */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
@@ -132,41 +141,50 @@ const Header = () => {
 
                         {/* <!-- Start Atribute Navigation --> */}
                         <div className="attr-nav">
+
                             <ul>
+                                {
+                                    user.email
+                                        ? (<>
+                                            <li className="search">
+                                                <a href="#">
+                                                    <i className="fa fa-search"></i>
+                                                </a>
+                                            </li>
 
-                                <li className="search">
-                                    <a href="#">
-                                        <i className="fa fa-search"></i>
-                                    </a>
-                                </li>
+                                            <li className="side-menu">
+                                                <a href="#">
+                                                    <i className="fa fa-shopping-bag"></i>
+                                                    <span className="badge">3</span>
+                                                </a>
+                                            </li>
 
-                                <li className="side-menu"><a href="#">
-                                    <i className="fa fa-shopping-bag"></i>
-                                    <span className="badge">3</span>
-                                </a></li>
+                                            <li className="dropdown">
+                                                <a href="/profile">
+                                                    <i className="fa fa-user" aria-hidden="true"></i>
+                                                </a>
+                                                <ul className="dropdown-menu">
 
-                                <li className="dropdown">
-                                    <a href="/profile">
-                                        <i className="fa fa-user" aria-hidden="true"></i>
-                                    </a>
-                                    <ul className="dropdown-menu">
+                                                    {/* TODO: Style div */}
+                                                    <div className="profile-icon">
+                                                        <p className="text-center font-weight-bold">Welcome, <span className="font-italic">{user.username}</span></p>
+                                                    </div>
+                                                    <li><a href="" onClick={onLogoutHandler}>Log Out</a></li>
+                                                    <li><a href="#">My Orders</a></li>
+                                                    <li><a href="#">My Account</a></li>
+                                                    <li><a href="#">Wishlist</a></li>
+                                                </ul>
+                                            </li>
+                                        </>)
 
-                                        {/* TODO: Style div */}
-                                        <div className="profile-icon">
-                                            <p>Welcome, Vasil</p>
-                                            <a >Log Out</a>
-                                        </div>
-                                        <li><a href="wishlist.html">My Orders</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                    </ul>
-                                </li>
+                                        : (<li className="auth" onClick={onAuthClickHandler}>
+                                            <a href="" className="btn">
+                                                Login/Register
+                                            </a>
+                                        </li>)
 
-                                <li className="auth" onClick={onAuthClickHandler}>
-                                    <a href="javascript:void(0)" className="btn">
-                                        Login/Register
-                                </a>
-                                </li>
+
+                                }
 
                             </ul>
                         </div>
