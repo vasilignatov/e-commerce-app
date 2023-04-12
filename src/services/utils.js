@@ -3,7 +3,7 @@ export async function request(url, options) {
     try {
         const response = await fetch(url, options);
 
-        if (response.ok == false) {
+        if (response.ok === false) {
             const error = await response.json();
             throw new Error(error.message);
         }
@@ -15,7 +15,7 @@ export async function request(url, options) {
             return response;
         }
     } catch (err) {
-        console.log(err.message);
+        console.log(err);
         throw err;
     }
 }

@@ -12,6 +12,3 @@ export async function register(username, password, email) {
 export async function logout() {
     return await request(endpoints.logout, getOptions('POST'));
 }
-
-
-
