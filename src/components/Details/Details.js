@@ -11,7 +11,6 @@ import FeaturedProducts from '../Common/FeaturedProducts.js';
 const Details = () => {
     const { id } = useParams();
     const { state: product, isLoading } = useFetch(endpoints.getProductById + id);
-    console.log(product);
 
     return (
         <ProductContext.Provider value={{ product, isLoading }}>
