@@ -12,6 +12,7 @@ const Header = () => {
     const navigate = useNavigate();
     const { user, onLogout } = useAuth();
     const [isVisible, setIsVisible] = useState(false);
+    
 
     function setIsVisibleHandler() {
         setIsVisible(isVisible => !isVisible);
@@ -24,11 +25,14 @@ const Header = () => {
         }
     }
 
-    async function onLogoutHandler(e) {
+    function onLogoutHandler(e) {
         e.preventDefault();
-        onLogout();
-        await authService.logout();
-        navigate('/');
+        authService.logout()
+            .then((res) => {
+                console.log(res);
+                onLogout();
+                navigate('/');
+            });
     }
 
     return (
