@@ -1,9 +1,11 @@
 import AllTitleBox from '../Common/AllTitleBox';
 
-const Contacts = () => {
+const ContactsPage = () => {
     return (
         <>
             <AllTitleBox title="CONTACT US" />
+
+            
             <div className="contact-box-main">
                 <div className="container">
                     <div className="row">
@@ -125,4 +127,4 @@ const Contacts = () => {
     )
 }
 
-export default Contacts;
+export default ContactsPage;

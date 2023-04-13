@@ -3,7 +3,7 @@ import CategoriesShop from './CategoriesShop.js';
 import FeaturedProducts from '../Common/FeaturedProducts.js';
 import LatestBlog from './LatestBlog.js';
 
-const Home = () => {
+const HomePage = () => {
    return (
       <>
          {/* <SlidesShop /> */}
@@ -14,4 +14,4 @@ const Home = () => {
    )
 }
 
-export default Home;
+export default HomePage;

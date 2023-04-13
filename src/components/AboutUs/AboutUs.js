@@ -1,6 +1,6 @@
 import AllTitleBox from '../Common/AllTitleBox';
 
-const AboutUs = () => {
+const AboutUsPage = () => {
     return (
         <>
             <AllTitleBox title="ABOUT US" />
@@ -232,4 +232,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs;
+export default AboutUsPage;

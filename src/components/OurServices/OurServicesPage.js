@@ -1,7 +1,8 @@
 import AllTitleBox from '../Common/AllTitleBox';
 import TeamMemeberCard from './TeamMemeberCard';
 import useFetch from '../../hooks/useFetch';
-const OurServices = () => {
+
+const OurServicesPage = () => {
 
     const { state: team, isLoading } = useFetch('http://localhost:3030/team')
 
@@ -94,4 +95,4 @@ const OurServices = () => {
     )
 }
 
-export default OurServices;
+export default OurServicesPage;

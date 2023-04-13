@@ -1,12 +1,12 @@
-import Home from './components/Home/Home.js';
+import HomePage from './components/Home/HomePage.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import AboutUs from './components/AboutUs/AboutUs.js';
-import Contacts from './components/Contacts/Contacts.js';
-import OurServices from './components/OurServices/OurServices.js';
+import AboutUsPage from './components/AboutUs/AboutUs.js';
+import ContactsPage from './components/Contacts/ContactsPage.js';
+import OurServicesPage from './components/OurServices/OurServicesPage.js';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Products from './components/Products/Products.js';
-import Details from './components/Details/Details.js';
+import ProductsPage from './components/Products/ProductsPage.js';
+import DetailsPage from './components/Details/DetailsPage';
 
 function App() {
 
@@ -15,13 +15,13 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate to='/' />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/services" element={<OurServices />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<Details />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/services" element={<OurServicesPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<DetailsPage />} />
       </Routes>
 
       <Footer />

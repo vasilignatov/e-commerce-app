@@ -1,7 +1,7 @@
-import SideBar from '../Products/SideBar.js';
-import Catalog from '../Products/Catalog/Catalog.js';
+import SideBar from './SideBar.js';
+import Catalog from './Catalog/Catalog.js';
 
-const Products = () => {
+const ProductsPage = () => {
 
     return (
         <div className="shop-box-inner">
@@ -19,4 +19,4 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default ProductsPage;
