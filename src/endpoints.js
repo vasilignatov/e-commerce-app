@@ -6,4 +6,5 @@ export const endpoints = {
     createProduct: `${host}/products/`,
     login: `${host}/users/login`,
     register: `${host}/users/register`,
+    logout: `${host}/users/logout`,
 }
