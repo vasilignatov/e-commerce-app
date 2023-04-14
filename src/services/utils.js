@@ -2,7 +2,6 @@
 export async function request(url, options) {
     try {
         const response = await fetch(url, options);
-
         if (response.ok === false) {
             const error = await response.json();
             throw new Error(error.message);
@@ -27,11 +26,10 @@ export function getOptions(method = 'get', body) {
         headers: {}
     };
 
-    // TODO: 
-    const user = null;
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    if (user) {
-        options.headers['X-Parse-Session-Token'] = user.sessionToken;
+    if (user._id) {
+        options.headers['X-Parse-Session-Token'] = user.token;
     }
 
     if (body) {
