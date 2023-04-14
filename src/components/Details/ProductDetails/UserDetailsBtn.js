@@ -1,19 +1,43 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import ProductContext from '../../../contexts/ProductContext.js';
-import { isAuth } from '../../../hoc/isAuth.js'
+import { isAuth } from '../../../hoc/isAuth.js';
 
 
 const ProductDetailBtns = () => {
 
+    const navigate = useNavigate();
     const { product, isLoading } = useContext(ProductContext);
-    const [currentSize, setCurrentSize] = useState('Choose your size');
+    const [size, setSize] = useState('Choose your size');
+    const [quantity, setQuantity] = useState(0);
+    const [error, setError] = useState(null);
 
     function onSizeClickHandler(e) {
         e.preventDefault();
         if (e.target.tagName == 'A' && e.target.classList.contains('active')) {
-            setCurrentSize(e.target.textContent);
+            setSize(e.target.textContent);
+        }
+    }
+
+    function onQuantityChangeHandler(e) {
+        setQuantity(e.target.value);
+    }
+
+    function onAddToCart(e) {
+        if (size == 'Choose your size') {
+            return setError('Please select a size');
+        }
+
+        if (quantity == 0) {
+            return setError('Please select a quantity');
+        }
+
+        if (!error) {
+            
+            navigate('/cart');
         }
     }
 
@@ -31,7 +55,7 @@ const ProductDetailBtns = () => {
                             title="Dropdown button"
                             className="mt-2"
                             onClick={onSizeClickHandler}
-                            title={currentSize}
+                            title={size}
                         >
                             {
                                 !isLoading
@@ -49,7 +73,7 @@ const ProductDetailBtns = () => {
                 <li>
                     <div className="form-group quantity-box">
                         <label className="control-label">Quantity</label>
-                        <input className="form-control" defaultValue={0} min={0} max={20} type="number" />
+                        <input className="form-control" onChange={onQuantityChangeHandler} defaultValue={0} min={0} max={20} type="number" />
                     </div>
                 </li>
             </ul>
