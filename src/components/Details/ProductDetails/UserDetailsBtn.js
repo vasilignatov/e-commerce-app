@@ -1,11 +1,14 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Alert from 'react-bootstrap/Alert';
+
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ProductContext from '../../../contexts/ProductContext.js';
 import { isAuth } from '../../../hoc/isAuth.js';
 
+const alertInitalState = { message: null, variant: null };
 
 const ProductDetailBtns = () => {
 
@@ -13,31 +16,46 @@ const ProductDetailBtns = () => {
     const { product, isLoading } = useContext(ProductContext);
     const [size, setSize] = useState('Choose your size');
     const [quantity, setQuantity] = useState(0);
-    const [error, setError] = useState(null);
+    const [alert, setAlert] = useState(alertInitalState);
 
     function onSizeClickHandler(e) {
         e.preventDefault();
         if (e.target.tagName == 'A' && e.target.classList.contains('active')) {
             setSize(e.target.textContent);
+            setAlert(alertInitalState);
         }
     }
 
     function onQuantityChangeHandler(e) {
-        setQuantity(e.target.value);
+        if (e.target.value > 0) {
+            setQuantity(e.target.value);
+            setAlert(alertInitalState);
+        }
     }
 
     function onAddToCart(e) {
         if (size == 'Choose your size') {
-            return setError('Please select a size');
+            return setAlert({
+                message: 'Please select a size',
+                variant: 'danger'
+            });
         }
 
         if (quantity == 0) {
-            return setError('Please select a quantity');
+            return setAlert({
+                message: 'Pleace select a quantity!',
+                variant: 'danger'
+            });
         }
 
-        if (!error) {
-            
-            navigate('/cart');
+        if (!alert.message) {
+            setAlert({
+                message: 'The item has been successfully added to the cart',
+                variant: 'success'
+            });
+            console.log();
+            // setTimeout(() => setAlert(alertInitalState), 2000);
+            // navigate('/cart');
         }
     }
 
@@ -79,11 +97,17 @@ const ProductDetailBtns = () => {
             </ul>
 
             <div className="price-box-bar">
+
+                {alert
+                    ? <Alert variant={alert.variant}>{alert.message}</Alert>
+                    : ''
+                }
+
                 <div className="cart-and-bay-btn">
                     <a className="btn hvr-hover" data-fancybox-close="" href="#">
                         Buy New
                     </a>
-                    <a className="btn hvr-hover" data-fancybox-close="" href="#">
+                    <a className="btn hvr-hover" data-fancybox-close="" href="#" onClick={onAddToCart}>
                         Add to cart
                     </a>
                 </div>
@@ -103,6 +127,7 @@ const ProductDetailBtns = () => {
                     </a> */}
                 </div>
 
+                {/* SOCIAL MEDIA BUTTONS */}
                 <div className="share-bar">
                     <a className="btn hvr-hover" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com">
                         <i className="fab fa-facebook" aria-hidden="true" />
