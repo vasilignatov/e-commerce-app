@@ -2,18 +2,7 @@ const SideBar = () => {
     return (
         <div className="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
             <div className="product-categori">
-                <div className="search-product">
-                    <form action="#">
-                        <input
-                            className="form-control"
-                            placeholder="Search here..."
-                            type="text"
-                        />
-                        <button type="submit">
-                            <i className="fa fa-search" />
-                        </button>
-                    </form>
-                </div>
+               
                 <div className="filter-sidebar-left">
                     <div className="title-left">
                         <h3>Categories</h3>
@@ -123,144 +112,8 @@ const SideBar = () => {
                         </a>
                     </div>
                 </div>
-                <div className="filter-price-left">
-                    <div className="title-left">
-                        <h3>Price</h3>
-                    </div>
-                    <div className="price-box-slider">
-                        <div id="slider-range" />
-                        <p>
-                            <input
-                                type="text"
-                                id="amount"
-                                readOnly=""
-                                style={{ border: 0, color: "#fbb714", fontWeight: "bold" }}
-                            />
-                            <button className="btn hvr-hover" type="submit">
-                                Filter
-                            </button>
-                        </p>
-                    </div>
-                </div>
-                <div className="filter-brand-left">
-                    <div className="title-left">
-                        <h3>Brand</h3>
-                    </div>
-                    <div className="brand-box">
-                        <ul>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios1"
-                                        defaultValue="Yes"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios1"> Supreme </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios2"
-                                        defaultValue="No"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios2"> A Bathing Ape </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios3"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios3"> The Hundreds </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios4"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios4"> Alife </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios5"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios5"> Neighborhood </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios6"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios6"> CLOT </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios7"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios7"> Acapulco Gold </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios8"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios8"> UNDFTD </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios9"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios9"> Mighty Healthy </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="radio radio-danger">
-                                    <input
-                                        name="survey"
-                                        id="Radios10"
-                                        defaultValue="declater"
-                                        type="radio"
-                                    />
-                                    <label htmlFor="Radios10"> Fiberops </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            
+                
             </div>
         </div>
     )
