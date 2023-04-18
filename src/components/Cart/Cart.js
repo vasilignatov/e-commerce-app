@@ -1,12 +1,18 @@
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+
 import { useCart } from '../../contexts/CartContext.js'
 import CartItem from './CartItem.js';
 import { isAuth } from '../../hoc/isAuth.js'
 
 const Cart = () => {
-   const { cart, dispatch } = useCart();
-   const [discount, setDiscount] = useState(0);
-   const total = cart.reduce((a, c) => a += c.total, 0);
+   const navigate = useNavigate();
+   const {
+      cart, dispatch,
+      discount, setDiscount,
+      total, setTotal,
+      grandTotal, setGrandTotal
+   } = useCart();
 
    const onApplyCoupon = (e) => {
       e.preventDefault();
@@ -15,11 +21,17 @@ const Cart = () => {
 
       if (currentCoupone > 0 && currentCoupone <= 20) {
          setDiscount(currentCoupone);
+         // setTotal();
       }
    }
 
-   const onCheckOut = () => {
-      
+   const onRefresh = (e) => {
+      setTotal(cart.reduce((a, c) => a += c.total, 0));
+      setGrandTotal(total - discount);
+   }
+
+   const onCheckout = (e) => {
+      navigate('/cart/checkout');
    }
 
    return (
@@ -44,7 +56,7 @@ const Cart = () => {
                         <tbody>
 
                            {
-                              cart.map(item => <CartItem key={item.productId} item={item} dispatch={dispatch} />)
+                              cart.map((item, i) => <CartItem key={i} item={item} dispatch={dispatch} />)
                            }
 
                         </tbody>
@@ -73,13 +85,14 @@ const Cart = () => {
                </div>
                <div className="col-lg-6 col-sm-6">
                   <div className="update-box">
-                     <input defaultValue="Update Cart" type="submit" />
+                     <input value="Update Cart" type="submit" onClick={onRefresh} />
                   </div>
                </div>
             </div>
 
             <div className="row my-5">
-               <div className="col-lg-8 col-sm-12" />
+               <div className="col-lg-8 col-sm-12" >
+               </div>
                <div className="col-lg-4 col-sm-12">
                   <div className="order-box">
                      <h3>Order summary</h3>
@@ -99,20 +112,20 @@ const Cart = () => {
                      <hr />
                      <div className="d-flex gr-total">
                         <h5>Grand Total</h5>
-                        <div className="ml-auto h5"> $ {total - discount} </div>
+                        <div className="ml-auto h5"> $ {grandTotal} </div>
                      </div>
                      <hr />
                   </div>
                </div>
                <div className="col-12 d-flex shopping-box">
-                  <a href="checkout.html" className="ml-auto btn hvr-hover">
+                  <button onClick={onCheckout} className="ml-auto btn hvr-hover">
                      Checkout
-                     </a>
+                  </button>
                </div>
             </div>
 
          </div>
-      </div>
+      </div >
    )
 }
 

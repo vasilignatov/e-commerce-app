@@ -1,14 +1,14 @@
-import SlidesShop from './SlidesShop.js';
 import CategoriesShop from './CategoriesShop.js';
-import FeaturedProducts from '../Common/FeaturedProducts.js';
+import LastAddedProducts from '../Common/LastAddedProducts.js';
+import AllTitleBox from '../Common/AllTitleBox.js';
 import LatestBlog from './LatestBlog.js';
 
 const HomePage = () => {
    return (
       <>
-         {/* <SlidesShop /> */}
+         <AllTitleBox title='Home'/>
          <CategoriesShop />
-         <FeaturedProducts />
+         <LastAddedProducts />
          <LatestBlog />
       </>
    )

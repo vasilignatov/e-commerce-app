@@ -3,8 +3,6 @@ import { useCart } from '../../contexts/CartContext.js';
 
 const CartItem = ({ item, dispatch }) => {
 
-    // const { cart, dispatch } = useCart();
-
     const onChangeQuantity = (e) => {
         e.preventDefault();
         if (e.currentTarget.value > 0) {

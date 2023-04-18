@@ -102,7 +102,7 @@ const Header = () => {
                                             </li>
 
                                             <li className="dropdown">
-                                                <a href="/profile">
+                                                <a href="">
                                                     <i className="fa fa-user" aria-hidden="true"></i>
                                                 </a>
                                                 <ul className="dropdown-menu">

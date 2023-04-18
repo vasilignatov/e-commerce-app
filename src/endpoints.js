@@ -7,8 +7,9 @@ export const endpoints = {
     login: `${host}/users/login`,
     register: `${host}/users/register`,
     logout: `${host}/users/logout`,
-    postOrder: `${host}/orders/post`,
+    postOrder: `${host}/orders/create`,
     getOrders: `${host}/orders`,
     getWhishlist: `${host}/whishlist`,
-    getWhishlist: `${host}/whishlist`,
+    postWhishlist: `${host}/whishlist`,
+    deleteWhishlist: `${host}/whishlist`,
 }

@@ -1,21 +1,32 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useCart } from '../../contexts/CartContext.js';
 import { useAuth } from '../../contexts/AuthContext.js';
-import { createOrder } from '../../services/ordersService.js'
-import { useNavigate } from 'react-router-dom';
+import { createOrder } from '../../services/ordersService.js';
+import { isAuth } from '../../hoc/isAuth.js';
 
 const CheckoutPage = () => {
     const navigate = useNavigate();
     const { user } = useAuth();
+    const {
+        cart, dispatch,
+        discount, setDiscount,
+        total, setTotal,
+        grandTotal, setGrandTotal
+    } = useCart();
 
     const onOrder = (e) => {
         e.preventDefault();
         const orderData = Object.fromEntries(new FormData(e.target));
 
-        createOrder(orderData, user._id)
-            .then(() =>{
+        createOrder({ ...orderData, grandTotal }, user._id)
+            .then(() => {
+                dispatch({
+                    type: 'CLEAR_CART',
+                });
                 navigate('/products');
             });
-    }
+    };
 
     return (
         <div className="cart-box-main">
@@ -142,21 +153,15 @@ const CheckoutPage = () => {
                                     <hr className="my-1" />
                                     <div className="d-flex">
                                         <h4>Sub Total</h4>
-                                        <div className="ml-auto font-weight-bold"> $ 440 </div>
+                                        <div className="ml-auto font-weight-bold"> $ {total} </div>
                                     </div>
-                                    <div className="d-flex">
-                                        <h4>Discount</h4>
-                                        <div className="ml-auto font-weight-bold"> $ 40 </div>
-                                    </div>
+
                                     <hr className="my-1" />
                                     <div className="d-flex">
                                         <h4>Coupon Discount</h4>
-                                        <div className="ml-auto font-weight-bold"> $ 10 </div>
+                                        <div className="ml-auto font-weight-bold"> $ {discount} </div>
                                     </div>
-                                    <div className="d-flex">
-                                        <h4>Tax</h4>
-                                        <div className="ml-auto font-weight-bold"> $ 2 </div>
-                                    </div>
+
                                     <div className="d-flex">
                                         <h4>Shipping Cost</h4>
                                         <div className="ml-auto font-weight-bold"> Free </div>
@@ -164,7 +169,7 @@ const CheckoutPage = () => {
                                     <hr />
                                     <div className="d-flex gr-total">
                                         <h5>Grand Total</h5>
-                                        <div className="ml-auto h5"> $ 388 </div>
+                                        <div className="ml-auto h5"> $ {grandTotal} </div>
                                     </div>
                                     <hr />
                                 </div>
@@ -186,4 +191,4 @@ const CheckoutPage = () => {
     )
 }
 
-export default CheckoutPage;
+export default isAuth(CheckoutPage);

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect } from 'react';
+import { createContext, useContext, useReducer, useEffect, useState } from 'react';
 
 const CartContext = createContext();
 
@@ -59,6 +59,7 @@ const reducer = (state, action) => {
         case 'REMOVE_ITEM':
             try {
                 const newState = state.filter(x => (x.productId !== action.payload.productId) && (x.size !== action.payload.size));
+                console.log(action.payload);
                 localStorage.setItem('cart', JSON.stringify(newState));
                 return newState;
             } catch (error) {
@@ -82,9 +83,12 @@ const reducer = (state, action) => {
 const CartProvider = ({ children }) => {
 
     const [cart, dispatch] = useReducer(reducer, [], createInitialCartState);
+    const [discount, setDiscount] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [grandTotal, setGrandTotal] = useState(0);
 
     return (
-        <CartContext.Provider value={{ cart, dispatch }}>
+        <CartContext.Provider value={{ cart, dispatch, discount, setDiscount, total, setTotal, grandTotal, setGrandTotal}}>
             {children}
         </CartContext.Provider>
     )

@@ -1,5 +1,5 @@
 import InstaFeed from '../Common/InstaFeed.js';
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
@@ -29,12 +29,12 @@ const Footer = () => {
                                 <div className="footer-link">
                                     <h4>Information</h4>
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Customer Service</a></li>
-                                        <li><a href="#">Our Sitemap</a></li>
-                                        <li><a href="#">Terms &amp; Conditions</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Delivery Information</a></li>
+                                        <li><Link to="/about">About Us</Link></li>
+                                        <li><Link to="/contacts">Contact Us</Link></li>
+                                        <li><Link to="/services">Services</Link></li>
+                                        <li><Link to="/">Terms &amp; Conditions</Link></li>
+                                        <li><Link to="/">Privacy Policy</Link></li>
+                                        <li><Link to="/">Delivery Information</Link></li>
                                     </ul>
                                 </div>
                             </div>

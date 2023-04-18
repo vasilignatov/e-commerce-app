@@ -6,7 +6,7 @@ import useFetch from '../../hooks/useFetch.js';
 import Carousel from './Carousel/Carousel.js';
 import ProductDetails from './ProductDetails/ProductDetails.js';
 import ProductContext from '../../contexts/ProductContext.js';
-import FeaturedProducts from '../Common/FeaturedProducts.js';
+import LastAddedProducts from '../Common/LastAddedProducts.js';
 
 const DetailsPage = () => {
     const { id } = useParams();
@@ -22,9 +22,7 @@ const DetailsPage = () => {
                         <ProductDetails />
                     </div>
 
-
-                    <FeaturedProducts />
-
+                    <LastAddedProducts />
 
                 </div>
             </div>
