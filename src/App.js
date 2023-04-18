@@ -1,15 +1,17 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './components/Home/HomePage.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import AboutUsPage from './components/AboutUs/AboutUs.js';
 import ContactsPage from './components/Contacts/ContactsPage.js';
 import OurServicesPage from './components/OurServices/OurServicesPage.js';
-import { Routes, Route, Navigate } from 'react-router-dom';
 import ProductsPage from './components/Products/ProductsPage.js';
-import DetailsPage from './components/Details/DetailsPage';
+import DetailsPage from './components/Details/DetailsPage.js';
+import CartPage from './components/Cart/CartPage.js';
+import CheckoutPage from './components/Checkout/CheckoutPage.js';
+
 
 function App() {
-
   return (
     <>
       <Header />
@@ -22,6 +24,8 @@ function App() {
         <Route path="/services" element={<OurServicesPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<DetailsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/cart/checkout" element={<CheckoutPage />} />
       </Routes>
 
       <Footer />
