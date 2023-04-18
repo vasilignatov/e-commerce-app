@@ -3,20 +3,30 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Alert from 'react-bootstrap/Alert';
 
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import ProductContext from '../../../contexts/ProductContext.js';
 import { isAuth } from '../../../hoc/isAuth.js';
+import { useCart } from '../../../contexts/CartContext.js';
 
 const alertInitalState = { message: null, variant: null };
 
+const addToCartMessage = (
+    <>
+        The item has been successfully added to the cart!
+        <Alert.Link as={Link} to="/cart">Check your cart</Alert.Link>
+    </>
+);
+
+
 const ProductDetailBtns = () => {
 
-    const navigate = useNavigate();
     const { product, isLoading } = useContext(ProductContext);
     const [size, setSize] = useState('Choose your size');
     const [quantity, setQuantity] = useState(0);
     const [alert, setAlert] = useState(alertInitalState);
+
+    const { dispatch } = useCart();
 
     function onSizeClickHandler(e) {
         e.preventDefault();
@@ -27,13 +37,15 @@ const ProductDetailBtns = () => {
     }
 
     function onQuantityChangeHandler(e) {
-        if (e.target.value > 0) {
-            setQuantity(e.target.value);
+        let currentQuantity = Number(e.target.value);
+        if (currentQuantity > 0) {
+            setQuantity(currentQuantity);
             setAlert(alertInitalState);
         }
     }
 
     function onAddToCart(e) {
+        e.preventDefault();
         if (size == 'Choose your size') {
             return setAlert({
                 message: 'Please select a size',
@@ -50,12 +62,24 @@ const ProductDetailBtns = () => {
 
         if (!alert.message) {
             setAlert({
-                message: 'The item has been successfully added to the cart',
+                message: addToCartMessage,
                 variant: 'success'
             });
-            console.log();
             // setTimeout(() => setAlert(alertInitalState), 2000);
-            // navigate('/cart');
+
+            const payload = {
+                productId: product._id,
+                size,
+                quantity,
+                total: product.price * quantity,
+                product,
+            }
+
+            setSize('Choose your size');
+            dispatch({
+                type: 'ADD_ITEM',
+                payload
+            })
         }
     }
 
@@ -107,7 +131,7 @@ const ProductDetailBtns = () => {
                     <a className="btn hvr-hover" data-fancybox-close="" href="#">
                         Buy New
                     </a>
-                    <a className="btn hvr-hover" data-fancybox-close="" href="#" onClick={onAddToCart}>
+                    <a className="btn hvr-hover" data-fancybox-close="" href="" onClick={onAddToCart}>
                         Add to cart
                     </a>
                 </div>
