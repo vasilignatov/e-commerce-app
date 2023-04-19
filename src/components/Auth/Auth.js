@@ -1,7 +1,7 @@
 import styles from './Auth.module.css';
 import './Auth.css';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext.js'
 import * as authService from '../../services/authService.js';
@@ -11,10 +11,10 @@ const Auth = ({
 }) => {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
-    const { onLogin, user } = useAuth();
+    const { onLogin } = useAuth();
 
     function onCloseModal(e) {
-        if (e.target.id == 'auth-overlay') {
+        if (e.target.id === 'auth-overlay') {
             setIsVisibleHandler();
         }
     }
@@ -24,7 +24,7 @@ const Auth = ({
 
         const { email, password } = Object.fromEntries(new FormData(e.currentTarget));
 
-        if (email == '' || password == '') {
+        if (email === '' || password === '') {
             return setError({ message: 'All fields are required!' });
         }
 
@@ -45,8 +45,8 @@ const Auth = ({
         e.preventDefault(e);
 
         const { username, password, email, rePass } = Object.fromEntries(new FormData(e.currentTarget));
-        console.log(username, password, rePass, email);
-        if (username == '' || password == '' || email == '' || rePass == '') {
+
+        if (username === '' || password === '' || email === '' || rePass === '') {
             return setError({ message: 'All fields are required!' });
         } else if (username.length < 3 || password.length < 3) {
             return setError({ message: 'Username or password must be at least 3 characters long!' });
