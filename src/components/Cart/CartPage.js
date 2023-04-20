@@ -1,7 +1,7 @@
 
 import AllTitleBox from '../Common/AllTitleBox.js';
 import Cart from './Cart.js';
-import InstaFeed from '../Common/InstaFeed.js';
+// import InstaFeed from '../Common/InstaFeed.js';
 import { useCart } from '../../contexts/CartContext.js';
 import { Row, Image } from 'react-bootstrap';
 
@@ -20,7 +20,7 @@ const CartPage = () => {
                     </Row>
             }
 
-            <InstaFeed />
+            {/* <InstaFeed /> */}
         </>
     );
 }

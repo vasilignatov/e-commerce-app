@@ -1,9 +1,9 @@
-import InstaFeed from '../Common/InstaFeed.js';
+// import InstaFeed from '../Common/InstaFeed.js';
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
-            <InstaFeed />
+            {/* <InstaFeed /> */}
 
             <footer>
                 <div className="footer-main">
