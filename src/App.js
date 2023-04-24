@@ -9,6 +9,7 @@ import ProductsPage from './components/Products/ProductsPage.js';
 import DetailsPage from './components/Details/DetailsPage.js';
 import CartPage from './components/Cart/CartPage.js';
 import CheckoutPage from './components/Checkout/CheckoutPage.js';
+import ErrorPage from './components/404/404.js';
 
 
 function App() {
@@ -25,7 +26,10 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<DetailsPage />} />
         <Route path="/cart" element={<CartPage />}></Route>
-        <Route path="/cart/checkout" element={<CheckoutPage />} />
+        <Route path="/cart/checkout" element={<CheckoutPage />}></Route>
+
+        <Route path="/404" element={<ErrorPage />}></Route>
+        <Route path="*" element={<Navigate to="404" />} />
       </Routes>
 
       <Footer />
