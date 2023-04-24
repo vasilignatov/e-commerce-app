@@ -113,7 +113,7 @@ const Header = () => {
                                                     </div>
                                                     <li><Link to="" onClick={onLogoutHandler}>Log Out</Link></li>
                                                     <li><Link to="/profile/my-orders">My Orders</Link></li>
-                                                    <li><Link to="profile/wishlist">Wishlist</Link></li>
+                                                    <li><Link to="/profile/whishlist">Wishlist</Link></li>
                                                 </ul>
                                             </li>
                                         </>)

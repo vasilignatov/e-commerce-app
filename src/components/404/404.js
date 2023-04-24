@@ -13,7 +13,7 @@ const ErrorPage = () => {
                 <Card.Text>
 
                 </Card.Text>
-                <Button className='hp_btn $red-500' as={Link} to="/404">Back to Home Page</Button>
+                <Button as={Link} to="/">Back to Home Page</Button>
             </Card.Body>
 
         </Card>
