@@ -5,7 +5,7 @@ export async function login(email, password) {
     return await request(endpoints.login, getOptions('POST', { email, password }));
 }
 
-export async function register(username, password, email) {
+export async function register(email, username, password) {
     return await request(endpoints.register, getOptions('POST', { email, username, password }));
 }
 

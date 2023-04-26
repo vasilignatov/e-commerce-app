@@ -30,6 +30,9 @@ const Auth = ({
 
         authService.login(email, password)
             .then((userData) => {
+                if (userData.type == 'error') {
+                    throw userData;
+                }
                 setError(null);
                 onLogin(userData);
                 setIsVisibleHandler();
@@ -37,7 +40,7 @@ const Auth = ({
             })
             .catch(err => {
                 console.log('Error: ', err);
-                setError(err.message);
+                setError({ message: err.message });
             });
     }
 
@@ -51,23 +54,26 @@ const Auth = ({
         } else if (username.length < 3 || password.length < 3) {
             return setError({ message: 'Username or password must be at least 3 characters long!' });
         } else if (password !== rePass) {
-            return setError({ message: 'Passwords missmatch!' })
+            return setError({ message: 'Passwords missmatch!' });
         } else if (email.length < 5 && !email.includes('@')) {
             return setError({ message: 'Invalid email adress!' });
         }
 
 
-        authService.register()
+        authService.register(email, username, password)
             .then(userData => {
-                console.log(userData);
+                if (userData.type == 'error') {
+                    throw userData;
+                }
                 setError(null);
                 onLogin(userData);
                 navigate('/');
+                setIsVisibleHandler();
             })
             .catch(err => {
                 console.log('Error: ', err);
-                setError(err.message);
-            })
+                setError({ message: err.message });
+            });
     }
 
     return (
