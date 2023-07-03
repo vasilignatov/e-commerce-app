@@ -5,7 +5,7 @@ E-commerce SPA application created with ReactJS
 ## Featues
 * ReactJS
 * HTML, CSS, JavaScript, Bootstrap
-* GitHub, e-commerce-rest-api
+* GitHub, [e-commerce-rest-api](https://github.com/vasilignatov/e-commerce-rest-api)
 
 ## Pages 
 * Home Page
