@@ -1,4 +1,3 @@
-
 export async function request(url, options) {
     try {
         const response = await fetch(url, options);
@@ -19,17 +18,19 @@ export async function request(url, options) {
     }
 }
 
-
 export function getOptions(method = 'get', body) {
     const options = {
         method,
         headers: {}
     };
-
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if (user._id) {
-        options.headers['X-Parse-Session-Token'] = user.token;
+    
+    try {
+        const tokens = JSON.parse(localStorage.getItem('tokens'));
+        if (tokens) {
+            options.headers['Authorization'] = `Bearer ${tokens.accessToken}`;
+        }
+    } catch (err) {
+        console.log();
     }
 
     if (body) {

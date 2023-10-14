@@ -9,6 +9,6 @@ export async function register(email, username, password) {
     return await request(endpoints.register, getOptions('POST', { email, username, password }));
 }
 
-export async function logout() {
-    return await request(endpoints.logout, getOptions('POST'));
+export async function logout(refreshToken) {
+    return await request(endpoints.logout, getOptions('POST', refreshToken));
 }
