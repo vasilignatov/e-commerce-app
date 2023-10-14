@@ -83,6 +83,12 @@ const ProductDetailBtns = () => {
         }
     }
 
+    function onAddtoWhishlist(e) {
+        e.preventDefault();
+
+        console.log(product);
+    }
+
     return (
         <>
             <ul>
@@ -122,15 +128,16 @@ const ProductDetailBtns = () => {
 
             <div className="price-box-bar">
 
-                {alert
-                    ? <Alert variant={alert.variant}>{alert.message}</Alert>
-                    : ''
+                {
+                    alert
+                        ? <Alert variant={alert.variant}>{alert.message}</Alert>
+                        : ''
                 }
 
                 <div className="cart-and-bay-btn">
-                    <a className="btn hvr-hover" data-fancybox-close="" href="#">
+                    {/* <a className="btn hvr-hover" data-fancybox-close="" href="#">
                         Buy New
-                    </a>
+                    </a> */}
                     <a className="btn hvr-hover" data-fancybox-close="" href="" onClick={onAddToCart}>
                         Add to cart
                     </a>
@@ -142,7 +149,7 @@ const ProductDetailBtns = () => {
 
                 <div className="add-comp">
 
-                    <a className="btn hvr-hover" href="#">
+                    <a className="btn hvr-hover" href="#" onClick={onAddtoWhishlist}>
                         <i className="fas fa-heart" /> Add to wishlist
                     </a>
 

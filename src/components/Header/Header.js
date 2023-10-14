@@ -11,7 +11,7 @@ import { useCart } from '../../contexts/CartContext.js';
 const Header = () => {
 
     const navigate = useNavigate();
-    const { user, onLogout } = useAuth();
+    const { user, tokens, onLogout } = useAuth();
     const [isVisible, setIsVisible] = useState(false);
     const { cart } = useCart();
 
@@ -26,13 +26,11 @@ const Header = () => {
         }
     }
 
-    function onLogoutHandler(e) {
+    async function onLogoutHandler(e) {
         e.preventDefault();
-        authService.logout()
-            .then(() => {
-                onLogout();
-                navigate('/');
-            });
+        await authService.logout({ refreshToken: tokens.refreshToken });
+        onLogout();
+        navigate('/');
     }
 
     return (
@@ -80,7 +78,7 @@ const Header = () => {
 
                                 <li className="nav-item">
                                     <Link className="nav-link" to="contacts">Contact Us</Link>
-                                </li >
+                                </li>
 
                             </ul>
                         </div>
