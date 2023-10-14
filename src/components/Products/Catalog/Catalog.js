@@ -89,7 +89,7 @@ const Catalog = () => {
                                                 <h5>
 
                                                     <del>$ 60.00</del> $40.79
-                                    </h5>
+                                                </h5>
                                                 <p>
                                                     Integer tincidunt aliquet nibh vitae dictum. In turpis
                                                     sapien, imperdiet quis magna nec, iaculis ultrices
@@ -102,10 +102,10 @@ const Catalog = () => {
                                                     Suspendisse at ipsum vel lacus vehicula blandit et
                                                     sollicitudin quam. Praesent vulputate semper libero
                                                     pulvinar consequat. Etiam ut placerat lectus.
-                                    </p>
+                                                </p>
                                                 <a className="btn hvr-hover" href="#">
                                                     Add to Cart
-                                    </a>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@ const Catalog = () => {
                                                 <h5>
 
                                                     <del>$ 60.00</del> $40.79
-                                    </h5>
+                                                </h5>
                                                 <p>
                                                     Integer tincidunt aliquet nibh vitae dictum. In turpis
                                                     sapien, imperdiet quis magna nec, iaculis ultrices
@@ -179,10 +179,10 @@ const Catalog = () => {
                                                     Suspendisse at ipsum vel lacus vehicula blandit et
                                                     sollicitudin quam. Praesent vulputate semper libero
                                                     pulvinar consequat. Etiam ut placerat lectus.
-                                    </p>
+                                                </p>
                                                 <a className="btn hvr-hover" href="#">
                                                     Add to Cart
-                                    </a>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -242,7 +242,7 @@ const Catalog = () => {
                                                 <h4>Lorem ipsum dolor sit amet</h4>
                                                 <h5>
                                                     <del>$ 60.00</del> $40.79
-                                    </h5>
+                                                </h5>
                                                 <p>
                                                     Integer tincidunt aliquet nibh vitae dictum. In turpis
                                                     sapien, imperdiet quis magna nec, iaculis ultrices
@@ -255,10 +255,10 @@ const Catalog = () => {
                                                     Suspendisse at ipsum vel lacus vehicula blandit et
                                                     sollicitudin quam. Praesent vulputate semper libero
                                                     pulvinar consequat. Etiam ut placerat lectus.
-                                    </p>
+                                                </p>
                                                 <a className="btn hvr-hover" href="#">
                                                     Add to Cart
-                                    </a>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
