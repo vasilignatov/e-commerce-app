@@ -5,7 +5,7 @@ E-commerce SPA application created with ReactJS
 ## Featues
 * ReactJS
 * HTML, CSS, JavaScript, Bootstrap
-* GitHub, e-commerce-rest-api
+* GitHub, [e-commerce-rest-api](https://github.com/vasilignatov/e-commerce-rest-api)
 
 ## Pages 
 * Home Page
@@ -21,15 +21,14 @@ E-commerce SPA application created with ReactJS
 
 ## Access control
 * **Guests** can: view the catalog, view details, 
-* **Registered** users can: add to cart, edit dynamicly cart, checkout, and finish order
+* **Registered** users can: add to cart, edit cart dynamically, checkout, and finish order
 * Only createor(registered user) of the quiz can delete or edit it
-* Registered user can solve all available qiozs
 * **Route Guards** added on: cart and checkout pages
 
 
 ## Usage
 
-To run the app, first install the neecesary dependencies:
+To run the app, first install the necedsary dependencies:
 
 `npm install` 
 
