@@ -1,14 +1,22 @@
-import useFetch from "../../hooks/useFetch";
-import { endpoints } from '../../endpoints.js';
+import { useFetch, useState } from 'react';
 import ProductsCardSmall from '../Products/Catalog/ProductCardSmall.js';
-
+import { getLastAdded } from '../../services/productService';
 const LastAddedProducts = () => {
 
-    const { state: products } = useFetch(endpoints.getProducts);
+    const [products, setProducts] = useState();
+
+    useFetch(() => {
+        (async () => {
+           const productsData = await getLastAdded();
+           console.log(productsData);
+        //    setProducts(productsData);
+        })();
+    }, []);
+
 
     return (
         <div className="products-box">
-            <div className="container">
+            {/* <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="title-all text-center">
@@ -22,11 +30,11 @@ const LastAddedProducts = () => {
                 <div className="row special-list">
 
                     {
-                        products.map(x => <ProductsCardSmall key={x._id} data={x} />)
+                        products?.map(x => <ProductsCardSmall key={x._id} data={x} />)
                     }
 
                 </div>
-            </div>
+            </div> */}
         </div>
 
     )

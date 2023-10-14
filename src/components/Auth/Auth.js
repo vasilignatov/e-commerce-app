@@ -30,6 +30,7 @@ const Auth = ({
 
         authService.login(email, password)
             .then((userData) => {
+                console.log(userData);
                 if (userData.type == 'error') {
                     throw userData;
                 }
@@ -44,7 +45,7 @@ const Auth = ({
             });
     }
 
-    function onSubmitRegister(e) {
+    async function onSubmitRegister(e) {
         e.preventDefault(e);
 
         const { username, password, email, rePass } = Object.fromEntries(new FormData(e.currentTarget));
