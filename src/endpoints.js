@@ -10,6 +10,7 @@ export const endpoints = {
     getProductById: `${host}/products/`,
     createProduct: `${host}/products/`,
     getLastAdded: `${host}/products/last-added`,
+    getProductsCategories: `${host}/products/get-products-categories`,
     // orders routes
     postOrder: `${host}/orders/create`,
     getOrders: `${host}/orders`,
