@@ -23,7 +23,6 @@ const Catalog = () => {
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane fade show active" id="grid-view">
                                 <div className="row">
-                                    {/* Small Card */}
 
                                     {
                                         products.map(p => <ProductCardSmall key={p._id} data={p} />)

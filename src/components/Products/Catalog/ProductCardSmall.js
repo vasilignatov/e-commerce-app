@@ -21,19 +21,11 @@ const ProductCardSmall = ({ data }) => {
                                 </Link>
                             </li>
                             <li>
-                                <Link data-toggle="tooltip" data-placement="right" title="Compare">
-                                    <i className="fas fa-sync-alt" />
-                                </Link>
-                            </li>
-                            <li>
                                 <Link data-toggle="tooltip" data-placement="right" title="Add to Wishlist">
                                     <i className="far fa-heart" />
                                 </Link>
                             </li>
                         </ul>
-                        <Link className="cart" >
-                            Add to Cart
-                        </Link>
                     </div>
                 </div>
                 <div className="why-text">

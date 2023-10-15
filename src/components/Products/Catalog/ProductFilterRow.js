@@ -5,7 +5,6 @@ const ProductFilterRow = () => {
 
     const products = useContext(AllProductsContext);
 
-
     return (
         <div className="product-item-filter row">
             <div className="col-12 col-sm-8 text-center text-sm-left">
@@ -32,24 +31,22 @@ const ProductFilterRow = () => {
                 }
             </div>
             <div className="col-12 col-sm-4 text-center text-sm-right">
-                <ul className="nav nav-tabs ml-auto">
+                {/* <ul className="nav nav-tabs ml-auto">
                     <li>
                         <a
                             className="nav-link active"
                             href="#grid-view"
                             data-toggle="tab"
                         >
-
                             <i className="fa fa-th" />
                         </a>
                     </li>
                     <li>
                         <a className="nav-link" href="#list-view" data-toggle="tab">
-
                             <i className="fa fa-list-ul" />
                         </a>
                     </li>
-                </ul>
+                </ul> */}
             </div>
         </div>
 
