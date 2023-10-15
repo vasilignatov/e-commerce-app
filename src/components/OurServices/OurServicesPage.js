@@ -4,7 +4,7 @@ import useFetch from '../../hooks/useFetch';
 
 const OurServicesPage = () => {
 
-    const { state: team, isLoading } = useFetch('http://localhost:3030/team')
+    const { state: team, isLoading } = useFetch('http://localhost:3000/team');
 
     return (
         <>
@@ -21,7 +21,7 @@ const OurServicesPage = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                                </p>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@ const OurServicesPage = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                                </p>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@ const OurServicesPage = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                                </p>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@ const OurServicesPage = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                                </p>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@ const OurServicesPage = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                                </p>
                             </div>
                         </div>
                     </div>
