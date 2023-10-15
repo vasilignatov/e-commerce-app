@@ -31,7 +31,7 @@ function App() {
         <Route path="profile/my-orders" element={<Navigate to='/' />}></Route>
         <Route path="/profile/whishlist" element={<WhishlistPage />}></Route>
         <Route path="/404" element={<ErrorPage />}></Route>
-        <Route path="*" element={<Navigate to="404" />} />
+        {/* <Route path="*" element={<Navigate to="404" />} /> */}
       </Routes>
 
       <Footer />

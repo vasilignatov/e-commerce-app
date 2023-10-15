@@ -63,7 +63,7 @@ const Auth = ({
 
         authService.register(email, username, password)
             .then(userData => {
-                if (userData.type == 'error') {
+                if (userData.type === 'error') {
                     throw userData;
                 }
                 setError(null);
