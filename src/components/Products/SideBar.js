@@ -1,9 +1,48 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { getProductCategories } from '../../services/productService';
+
+const SideBarItem = ({ data }) => {
+    console.log(data);
+
+    return (
+        <Link
+            to={`${data.category}/${data.type}`}
+            className="list-group-item list-group-item-action"
+        >
+            {data.type.toUpperCase()} <small className="text-muted">({data.count})</small>
+        </Link>
+    )
+}
+
+
 const SideBar = () => {
+
+    const [maleCategories, setMaleCategories] = useState([]);
+    const [femaleCategories, setFemaleCategories] = useState([]);
+    const [itemCounts, setItemCounts] = useState();
+
+    useEffect(() => {
+        (async () => {
+            const { male, female } = await getProductCategories();
+            const maleCatArr = Object.entries(male);
+            const femaleCatArr = Object.entries(female);
+            const maleItems = Object.values(male).reduce((acc, c) => acc += Number(c), 0);
+            const femaleItems = Object.values(female).reduce((acc, c) => acc += Number(c), 0);
+            setMaleCategories(maleCatArr);
+            setFemaleCategories(femaleCatArr);
+            setItemCounts({maleItems, femaleItems});
+        })();
+    }, []);
+
     return (
         <div className="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
             <div className="product-categori">
-               
+
                 <div className="filter-sidebar-left">
+
                     <div className="title-left">
                         <h3>Categories</h3>
                     </div>
@@ -20,7 +59,7 @@ const SideBar = () => {
                                 aria-expanded="true"
                                 aria-controls="sub-men1"
                             >
-                                Clothing <small className="text-muted">(100)</small>
+                                Woman <small className="text-muted">({itemCounts?.femaleItems})</small>
                             </a>
                             <div
                                 className="collapse show"
@@ -28,37 +67,11 @@ const SideBar = () => {
                                 data-parent="#list-group-men"
                             >
                                 <div className="list-group">
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action active"
-                                    >
-                                        T-Shirts <small className="text-muted">(50)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Polo T-Shirts <small className="text-muted">(10)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Round Neck T-Shirts
-                                <small className="text-muted">(10)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        V Neck T-Shirts <small className="text-muted">(10)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Hooded T-Shirts <small className="text-muted">(20)</small>
-                                    </a>
+
+                                    {
+                                        femaleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'woman' }} />)
+                                    }
+
                                 </div>
                             </div>
                         </div>
@@ -70,8 +83,8 @@ const SideBar = () => {
                                 aria-expanded="false"
                                 aria-controls="sub-men2"
                             >
-                                Footwear
-                            <small className="text-muted">(50)</small>
+                                Man
+                                <small className="text-muted"> ({itemCounts?.maleItems}) </small>
                             </a>
                             <div
                                 className="collapse"
@@ -79,41 +92,18 @@ const SideBar = () => {
                                 data-parent="#list-group-men"
                             >
                                 <div className="list-group">
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Sports Shoes <small className="text-muted">(10)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Sneakers <small className="text-muted">(20)</small>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="list-group-item list-group-item-action"
-                                    >
-                                        Formal Shoes <small className="text-muted">(20)</small>
-                                    </a>
+
+                                    {
+                                        maleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'man' }} />)
+                                    }
+
                                 </div>
                             </div>
                         </div>
-                        <a href="#" className="list-group-item list-group-item-action">
-
-                            Men <small className="text-muted">(150) </small>
-                        </a>
-                        <a href="#" className="list-group-item list-group-item-action">
-                            Accessories <small className="text-muted">(11)</small>
-                        </a>
-                        <a href="#" className="list-group-item list-group-item-action">
-                            Bags <small className="text-muted">(22)</small>
-                        </a>
                     </div>
                 </div>
-            
-                
+
+
             </div>
         </div>
     )
