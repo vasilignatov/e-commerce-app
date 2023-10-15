@@ -1,3 +1,24 @@
 .attr-nav ul .dropdown .dropdown-menu {
-    left: -50px!important
+    left: -50px !important
+}
+
+.dropdown__container {
+    width: 43px;
+    height: 83px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown__container i {
+    color: black;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.dropdown__container i:hover {
+    color:#d33b33;
+    transition: all 0.3s;
 }
