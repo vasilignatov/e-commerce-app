@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
 const ProductCardSmall = ({ data }) => {
+    // console.log(data);
+
     return (
         <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div className="products-single fix">
@@ -16,14 +18,19 @@ const ProductCardSmall = ({ data }) => {
                     <div className="mask-icon">
                         <ul>
                             <li>
-                                <Link to={data._id} data-toggle="tooltip" data-placement="right" title="View">
+                                <Link
+                                    to={`${data.sex}/${data.subCategory}/${data._id}`}
+                                    data-toggle="tooltip"
+                                    data-placement="right"
+                                    title="View"
+                                >
                                     <i className="fas fa-eye" />
                                 </Link>
                             </li>
                             <li>
-                                <Link data-toggle="tooltip" data-placement="right" title="Add to Wishlist">
+                                <a data-toggle="tooltip" data-placement="right" title="Add to Wishlist">
                                     <i className="far fa-heart" />
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
