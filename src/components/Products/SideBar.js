@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { getProductCategories } from '../../services/productService';
 
 const SideBarItem = ({ data }) => {
-    console.log(data);
-
     return (
         <Link
             to={`${data.category}/${data.type}`}
@@ -33,7 +31,7 @@ const SideBar = () => {
             const femaleItems = Object.values(female).reduce((acc, c) => acc += Number(c), 0);
             setMaleCategories(maleCatArr);
             setFemaleCategories(femaleCatArr);
-            setItemCounts({maleItems, femaleItems});
+            setItemCounts({ maleItems, femaleItems });
         })();
     }, []);
 
@@ -59,7 +57,7 @@ const SideBar = () => {
                                 aria-expanded="true"
                                 aria-controls="sub-men1"
                             >
-                                Woman <small className="text-muted">({itemCounts?.femaleItems})</small>
+                                Female <small className="text-muted">({itemCounts?.femaleItems})</small>
                             </a>
                             <div
                                 className="collapse show"
@@ -83,7 +81,7 @@ const SideBar = () => {
                                 aria-expanded="false"
                                 aria-controls="sub-men2"
                             >
-                                Man
+                                Male
                                 <small className="text-muted"> ({itemCounts?.maleItems}) </small>
                             </a>
                             <div
