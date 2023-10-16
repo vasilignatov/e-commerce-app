@@ -5,7 +5,7 @@ import UserDetailsBtn from './UserDetailsBtn.js'
 
 const ProductDetails = () => {
 
-    const { product, isLoading } = useContext(ProductContext);
+    const { product } = useContext(ProductContext);
 
     return (
         <div className="col-xl-7 col-lg-7 col-md-6">

@@ -86,7 +86,7 @@ const ProductDetailBtns = () => {
     function onAddtoWhishlist(e) {
         e.preventDefault();
 
-        console.log(product);
+        console.log('Added to whishlist: ', product);
     }
 
     return (
@@ -108,10 +108,10 @@ const ProductDetailBtns = () => {
                             {
                                 !isLoading
                                     ? Object.entries(product.sizesAvailable)
-                                        .map(([k, v]) => {
-                                            return <Dropdown.Item eventKey={k} active={v}>{k}</Dropdown.Item>
+                                        .map(([k, v], i) => {
+                                            return <Dropdown.Item eventKey={k} key={i} active={v}>{k}</Dropdown.Item>
                                         })
-                                    : ''
+                                    : null
                             }
 
                         </DropdownButton>

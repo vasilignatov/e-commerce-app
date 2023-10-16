@@ -9,7 +9,6 @@ const LastAddedProducts = () => {
     useEffect(() => {
         (async () => {
             const productsData = await getLastAdded();
-            console.log(productsData);
             setProducts(productsData);
         })();
     },[]);
