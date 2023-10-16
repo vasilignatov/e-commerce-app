@@ -20,16 +20,26 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<Navigate to='/' />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/services" element={<OurServicesPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/:id" element={<DetailsPage />} />
-        <Route path="/cart" element={<CartPage />}></Route>
-        <Route path="/cart/checkout" element={<CheckoutPage />}></Route>
-        <Route path="profile/my-orders" element={<Navigate to='/' />}></Route>
-        <Route path="/profile/whishlist" element={<WhishlistPage />}></Route>
+        <Route path="home" element={<Navigate to='/' />} />
+        <Route path="about" element={<AboutUsPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+        <Route path="services" element={<OurServicesPage />} />
+
+        <Route path="products" element={<ProductsPage />}>
+            <Route path=":sex/:category" element={<ProductsPage />}>
+              <Route path=":id" element={<DetailsPage />} />
+          </Route>
+        </Route>
+
+        <Route path="cart" element={<CartPage />}>
+          <Route path="checkout" element={<CheckoutPage />}></Route>
+        </Route>
+
+        <Route path="profile/my-orders" element={<Navigate to='/' />}>
+          <Route path="my-orders" element={<Navigate to='/' />} />
+          <Route path="whishlist" element={<WhishlistPage />} />
+        </Route>
+
         <Route path="/404" element={<ErrorPage />}></Route>
         {/* <Route path="*" element={<Navigate to="404" />} /> */}
       </Routes>
