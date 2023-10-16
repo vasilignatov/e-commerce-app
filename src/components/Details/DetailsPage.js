@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { endpoints } from '../../endpoints.js';
 import useFetch from '../../hooks/useFetch.js';
-import Carousel from './Carousel/Carousel.js';
+import ProductImage from './ProductImage/ProductImage.js';
 import ProductDetails from './ProductDetails/ProductDetails.js';
 import ProductContext from '../../contexts/ProductContext.js';
 import LastAddedProducts from '../Common/LastAddedProducts.js';
@@ -17,7 +17,9 @@ const DetailsPage = () => {
             <div className="shop-detail-box-main">
                 <div className="container">
                     <div className="row">
-                        <Carousel />
+                        {
+                            !isLoading && <ProductImage product={product} />
+                        }
 
                         <ProductDetails />
                     </div>
