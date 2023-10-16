@@ -10,7 +10,6 @@ const createInitialCartState = (initialState) => {
 
         return initialState;
     }
-
     return JSON.parse(current);
 }
 
@@ -20,8 +19,7 @@ const reducer = (state, action) => {
 
         case 'ADD_ITEM':
             let items = state.filter(i => i.productId == action.payload.productId);
-
-            // CASE 1 -> productId doesn`t exist -> add to cart
+            // CASE 1 -> productId is not in the cart -> add to cart
             if (items.length == 0) {
                 try {
                     const newState = [...state, Object.assign({}, action.payload)];
@@ -31,7 +29,6 @@ const reducer = (state, action) => {
                     console.log(error);
                 }
             }
-
             let result = items.filter(i => i.size == action.payload.size);
             // CASE 2 -> productId exist -> chech size (doesn`t exist same size in cart) -> add to cart
             if (items.length > 0 && result.length == 0) {
@@ -44,22 +41,37 @@ const reducer = (state, action) => {
                 }
             } else {
                 // CASE 3 -> productId exist -> same size exist -> you already add to cart / increment quantity
+                console.log('case 3');
                 try {
                     const newState = JSON.parse(JSON.stringify(state));
                     const index = newState.findIndex(x => (x.productId === action.payload.productId) && (x.size === action.payload.size));
-                    newState[index] = action.payload;
+                    newState[index].quantity += action.payload.quantity;
                     localStorage.setItem('cart', JSON.stringify(newState));
                     return newState;
-
                 } catch (error) {
                     console.log(error);
                 }
             }
 
+        case 'CHANGE_ITEM_QUANTITY':
+            try {
+                const newState = JSON.parse(JSON.stringify(state));
+                const index = newState.findIndex(x => (x.productId === action.payload.productId) && (x.size === action.payload.size));
+                newState[index] = action.payload;
+                localStorage.setItem('cart', JSON.stringify(newState));
+                return newState;
+            } catch(error) {
+                console.log(error);
+            }
+
         case 'REMOVE_ITEM':
             try {
-                const newState = state.filter(x => (x.productId !== action.payload.productId) && (x.size !== action.payload.size));
-                console.log(action.payload);
+                console.log(state);
+                const newState = state
+                    .filter(x => {
+                        return x.productId !== action.payload.productId || x.size !== action.payload.size;
+                    });
+                    console.log(newState);
                 localStorage.setItem('cart', JSON.stringify(newState));
                 return newState;
             } catch (error) {
@@ -73,6 +85,7 @@ const reducer = (state, action) => {
             } catch (error) {
                 console.log(error);
             }
+
         default:
             throw new Error('Wrong action type');
     }
@@ -88,7 +101,16 @@ const CartProvider = ({ children }) => {
     const [grandTotal, setGrandTotal] = useState(0);
 
     return (
-        <CartContext.Provider value={{ cart, dispatch, discount, setDiscount, total, setTotal, grandTotal, setGrandTotal}}>
+        <CartContext.Provider value={{
+            cart,
+            dispatch,
+            discount,
+            setDiscount,
+            total,
+            setTotal,
+            grandTotal,
+            setGrandTotal
+        }}>
             {children}
         </CartContext.Provider>
     )

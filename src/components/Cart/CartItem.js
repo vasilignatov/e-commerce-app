@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../contexts/CartContext.js';
 
-const CartItem = ({ item, dispatch }) => {
+const CartItem = ({ item, dispatch, onRefresh }) => {
 
     const onChangeQuantity = (e) => {
         e.preventDefault();
-        if (e.currentTarget.value > 0) {
+        if (e.target.value > 0) {
             let editedItem = Object.assign({}, item);
             editedItem.quantity = Number(e.currentTarget.value);
             editedItem.total = editedItem.quantity * editedItem.product.price;
 
             dispatch({
-                type: 'ADD_ITEM',
+                type: 'CHANGE_ITEM_QUANTITY',
                 payload: editedItem
             });
+
+            onRefresh();
         }
     }
 

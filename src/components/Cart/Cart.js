@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import { useCart } from '../../contexts/CartContext.js'
@@ -6,6 +6,7 @@ import CartItem from './CartItem.js';
 import { isAuth } from '../../hoc/isAuth.js'
 
 const Cart = () => {
+
    const navigate = useNavigate();
    const {
       cart, dispatch,
@@ -14,6 +15,10 @@ const Cart = () => {
       grandTotal, setGrandTotal
    } = useCart();
 
+   useEffect(() => {
+      onRefresh();
+   }, [total, grandTotal, cart, discount]);
+
    const onApplyCoupon = (e) => {
       e.preventDefault();
       let { currentCoupone } = Object.fromEntries(new FormData(e.currentTarget));
@@ -21,13 +26,12 @@ const Cart = () => {
 
       if (currentCoupone > 0 && currentCoupone <= 20) {
          setDiscount(currentCoupone);
-         // setTotal();
       }
    }
 
    const onRefresh = (e) => {
       setTotal(cart.reduce((a, c) => a += c.total, 0));
-      setGrandTotal(total - discount);
+      setGrandTotal(Number(total) - discount);
    }
 
    const onCheckout = (e) => {
@@ -56,7 +60,7 @@ const Cart = () => {
                         <tbody>
 
                            {
-                              cart.map((item, i) => <CartItem key={i} item={item} dispatch={dispatch} />)
+                              cart.map((item, i) => <CartItem key={i} item={item} dispatch={dispatch} onRefresh={onRefresh} />)
                            }
 
                         </tbody>
@@ -98,7 +102,7 @@ const Cart = () => {
                      <h3>Order summary</h3>
                      <div className="d-flex">
                         <h4>Sub Total</h4>
-                        <div className="ml-auto font-weight-bold"> $ {total} </div>
+                        <div className="ml-auto font-weight-bold"> $ {total.toFixed(2)} </div>
                      </div>
                      <hr className="my-1" />
                      <div className="d-flex">
@@ -112,7 +116,7 @@ const Cart = () => {
                      <hr />
                      <div className="d-flex gr-total">
                         <h5>Grand Total</h5>
-                        <div className="ml-auto h5"> $ {grandTotal} </div>
+                        <div className="ml-auto h5"> $ {grandTotal.toFixed(2)} </div>
                      </div>
                      <hr />
                   </div>
@@ -125,7 +129,7 @@ const Cart = () => {
             </div>
 
          </div>
-      </div >
+      </div>
    )
 }
 
