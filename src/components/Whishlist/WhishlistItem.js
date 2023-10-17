@@ -1,14 +1,19 @@
-const WhishlistItem = (product) => {
+import { Link } from 'react-router-dom';
+
+const WhishlistItem = ({ product, removeItem }) => {
+    console.log(product);
+    const path = `../../products/${product.gender}/${product.subCategory}/${product._id}`;
+
     return (
         <tr>
             <td className="thumbnail-img">
-                <a href="">
+                <Link relative='path' to={path}>
                     <img
                         className="img-fluid"
                         src={product.images[0]}
-                        alt=""
+                        alt="Product image"
                     />
-                </a>
+                </Link>
             </td>
 
             <td className="name-pr">
@@ -22,15 +27,15 @@ const WhishlistItem = (product) => {
             <td className="quantity-box">In Stock</td>
 
             <td className="add-pr">
-                <a className="btn hvr-hover" href="">
+                <Link className="btn hvr-hover" to={path}>
                     Move to Cart
-                </a>
+                </Link>
             </td>
 
             <td className="remove-pr">
-                <a href="#">
+                <button className='btn btn-link' onClick={() => removeItem({productId: product._id })}>
                     <i className="fas fa-times" />
-                </a>
+                </button>
             </td>
 
         </tr>
