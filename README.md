@@ -1,6 +1,6 @@
 # e-commerce-react-app
 
-E-commerce SPA application created with ReactJS
+E-commerce project created with MERN stack. This repository represents the Frontend part of the project, a link to the backend repo can be found below.
 
 ## Featues
 * ReactJS
