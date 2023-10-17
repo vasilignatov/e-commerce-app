@@ -1,5 +1,5 @@
+import './CheckoutPage.css';
 import { useNavigate } from 'react-router-dom';
-
 import { useCart } from '../../contexts/CartContext.js';
 import { useAuth } from '../../contexts/AuthContext.js';
 import { createOrder } from '../../services/ordersService.js';
@@ -7,25 +7,28 @@ import { isAuth } from '../../hoc/isAuth.js';
 
 const CheckoutPage = () => {
     const navigate = useNavigate();
+
     const { user } = useAuth();
     const {
         cart, dispatch,
-        discount, setDiscount,
-        total, setTotal,
-        grandTotal, setGrandTotal
+        discount, total,
+        grandTotal,
     } = useCart();
 
-    const onOrder = (e) => {
+    const sendOrder = (e) => {
         e.preventDefault();
-        const orderData = Object.fromEntries(new FormData(e.target));
+        const { firstName, lastName, address } = Object.fromEntries(new FormData(e.target));
+        const data = {
+            firstName, lastName, address, grandTotal, items: [...cart], userId: user._id
+        }
 
-        createOrder({ ...orderData, grandTotal }, user._id)
+        createOrder(data)
             .then(() => {
                 dispatch({
                     type: 'CLEAR_CART',
                 });
                 navigate('/products');
-            });
+            })
     };
 
     return (
@@ -38,7 +41,7 @@ const CheckoutPage = () => {
                             <div className="title-left">
                                 <h3>Billing address</h3>
                             </div>
-                            <form className="needs-validation" id="on-order" onSubmit={onOrder}>
+                            <form className="needs-validation" id="on-order" onSubmit={sendOrder}>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="firstName">First name *</label>
