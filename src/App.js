@@ -6,6 +6,7 @@ import AboutUsPage from './components/AboutUs/AboutUs.js';
 import ContactsPage from './components/Contacts/ContactsPage.js';
 import OurServicesPage from './components/OurServices/OurServicesPage.js';
 import ProductsPage from './components/Products/ProductsPage.js';
+import Catalog from './components/Products/Catalog/Catalog.js';
 import DetailsPage from './components/Details/DetailsPage.js';
 import CartPage from './components/Cart/CartPage.js';
 import CheckoutPage from './components/Checkout/CheckoutPage.js';
@@ -26,22 +27,22 @@ function App() {
         <Route path="services" element={<OurServicesPage />} />
 
         <Route path="products" element={<ProductsPage />}>
-            <Route path=":sex/:category" element={<ProductsPage />}>
-              <Route path=":id" element={<DetailsPage />} />
-          </Route>
+          <Route path=":gender/:category" element={<Catalog />} />
+        </Route>
+        <Route path="products/:gender/:category/:id" element={<DetailsPage />} />
+
+        <Route path="cart">
+          <Route index element={<CartPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
         </Route>
 
-        <Route path="cart" element={<CartPage />}>
-          <Route path="checkout" element={<CheckoutPage />}></Route>
-        </Route>
-
-        <Route path="profile/my-orders" element={<Navigate to='/' />}>
+        <Route path="profile">
           <Route path="my-orders" element={<Navigate to='/' />} />
           <Route path="whishlist" element={<WhishlistPage />} />
         </Route>
 
         <Route path="/404" element={<ErrorPage />}></Route>
-        {/* <Route path="*" element={<Navigate to="404" />} /> */}
+        <Route path="*" element={<Navigate to="404" />} />
       </Routes>
 
       <Footer />
