@@ -16,6 +16,6 @@ export const endpoints = {
     getOrders: `${host}/orders`,
     // whishlist routes
     getWhishlist: `${host}/whishlist`,
-    postWhishlist: `${host}/whishlist`,
-    deleteWhishlist: `${host}/whishlist`,
+    addProductToWhishlist: `${host}/whishlist`,
+    removeFromWhishlist: `${host}/whishlist`,
 }
