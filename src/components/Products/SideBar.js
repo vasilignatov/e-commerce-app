@@ -25,6 +25,7 @@ const SideBar = () => {
     useEffect(() => {
         (async () => {
             const { male, female } = await getProductCategories();
+            console.log(male, female);
             const maleCatArr = Object.entries(male);
             const femaleCatArr = Object.entries(female);
             const maleItems = Object.values(male).reduce((acc, c) => acc += Number(c), 0);
@@ -67,7 +68,7 @@ const SideBar = () => {
                                 <div className="list-group">
 
                                     {
-                                        femaleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'woman' }} />)
+                                        femaleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'female' }} />)
                                     }
 
                                 </div>
@@ -92,7 +93,7 @@ const SideBar = () => {
                                 <div className="list-group">
 
                                     {
-                                        maleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'man' }} />)
+                                        maleCategories?.map(([k, v], i) => <SideBarItem key={i} data={{ type: k, count: v, category: 'male' }} />)
                                     }
 
                                 </div>
