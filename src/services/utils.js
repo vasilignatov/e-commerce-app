@@ -30,7 +30,7 @@ export function getOptions(method = 'get', body) {
             options.headers['Authorization'] = `Bearer ${tokens.accessToken}`;
         }
     } catch (err) {
-        console.log();
+        console.log(err);
     }
 
     if (body) {

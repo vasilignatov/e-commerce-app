@@ -25,7 +25,6 @@ const SideBar = () => {
     useEffect(() => {
         (async () => {
             const { male, female } = await getProductCategories();
-            console.log(male, female);
             const maleCatArr = Object.entries(male);
             const femaleCatArr = Object.entries(female);
             const maleItems = Object.values(male).reduce((acc, c) => acc += Number(c), 0);

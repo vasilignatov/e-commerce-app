@@ -30,7 +30,6 @@ const Auth = ({
 
         authService.login(email, password)
             .then((userData) => {
-                console.log(userData);
                 if (userData.type == 'error') {
                     throw userData;
                 }

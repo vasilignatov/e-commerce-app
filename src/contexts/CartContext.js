@@ -41,7 +41,6 @@ const reducer = (state, action) => {
                 }
             } else {
                 // CASE 3 -> productId exist -> same size exist -> you already add to cart / increment quantity
-                console.log('case 3');
                 try {
                     const newState = JSON.parse(JSON.stringify(state));
                     const index = newState.findIndex(x => (x.productId === action.payload.productId) && (x.size === action.payload.size));
@@ -66,12 +65,10 @@ const reducer = (state, action) => {
 
         case 'REMOVE_ITEM':
             try {
-                console.log(state);
                 const newState = state
                     .filter(x => {
                         return x.productId !== action.payload.productId || x.size !== action.payload.size;
                     });
-                    console.log(newState);
                 localStorage.setItem('cart', JSON.stringify(newState));
                 return newState;
             } catch (error) {
