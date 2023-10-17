@@ -48,3 +48,21 @@ The application is launched, but to use the full functionality you need to insta
 
 
 ## Pages
+
+**Home**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/home.png?updatedAt=1697539556810)
+
+**Products**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/image.png?updatedAt=1697540311542)
+
+**Details**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/details.png?updatedAt=1697541426913)
+
+**Cart**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/cart.png?updatedAt=1697541423251)
+
+**Checkout**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/checkout.png?updatedAt=1697541429489)
+
+**Whishlist**
+![ImageKit.io](https://ik.imagekit.io/8brpz6ecl/e-commerce-react/Pages/whishlist.png?updatedAt=1697541420202)
