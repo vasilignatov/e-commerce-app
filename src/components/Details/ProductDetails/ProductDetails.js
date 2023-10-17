@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
                 <p>{product.description}</p>
 
-            
+
                 <UserDetailsBtn />
 
             </div>

@@ -29,7 +29,7 @@ const LastAddedProducts = () => {
                 <div className="row special-list">
 
                     {
-                        products?.map(x => <ProductsCardSmall key={x._id} data={x} />)
+                        products?.map(x => <ProductsCardSmall key={x._id} data={x} isSub={false}/>)
                     }
 
                 </div>

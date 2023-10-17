@@ -3,8 +3,9 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Alert from 'react-bootstrap/Alert';
 
 import { useContext, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+import { addProductToWhishlist } from '../../../services/whishlistService';
 import ProductContext from '../../../contexts/ProductContext.js';
 import { isAuth } from '../../../hoc/isAuth.js';
 import { useCart } from '../../../contexts/CartContext.js';
@@ -83,10 +84,9 @@ const ProductDetailBtns = () => {
         }
     }
 
-    function onAddtoWhishlist(e) {
+    async function onAddtoWhishlist(e) {
         e.preventDefault();
-
-        console.log('Added to whishlist: ', product);
+        await addProductToWhishlist({ productId: product._id });
     }
 
     return (
