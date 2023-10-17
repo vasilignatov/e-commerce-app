@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
+import { addProductToWhishlist } from '../../../services/whishlistService';
 
-const ProductCardSmall = ({ data }) => {
-    // console.log(data);
+const ProductCardSmall = ({ data, isSub }) => {
+
+    let path = isSub
+        ? `${data._id}`
+        : `${data.gender}/${data.subCategory}/${data._id}`
+
+    const addToWhishlist = async (ev) => {
+        ev.preventDefault();
+        await addProductToWhishlist({productId: data._id});
+    }
 
     return (
         <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4">
@@ -19,7 +28,7 @@ const ProductCardSmall = ({ data }) => {
                         <ul>
                             <li>
                                 <Link
-                                    to={`${data.sex}/${data.subCategory}/${data._id}`}
+                                    to={path}
                                     data-toggle="tooltip"
                                     data-placement="right"
                                     title="View"
@@ -28,7 +37,11 @@ const ProductCardSmall = ({ data }) => {
                                 </Link>
                             </li>
                             <li>
-                                <a data-toggle="tooltip" data-placement="right" title="Add to Wishlist">
+                                <a
+                                    onClick={addToWhishlist}
+                                    data-toggle="tooltip"
+                                    data-placement="right"
+                                    title="Add to Wishlist">
                                     <i className="far fa-heart" />
                                 </a>
                             </li>

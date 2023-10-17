@@ -1,15 +1,17 @@
 import ProductFilterRow from './ProductFilterRow.js';
 import ProductCardSmall from './ProductCardSmall.js';
-import { useEffect, useState } from 'react';
 import useFetch from '../../../hooks/useFetch';
 import { endpoints } from '../../../endpoints.js';
 import { AllProductsContext } from '../../../contexts/AllProductsContext.js';
-
+import { useParams } from 'react-router-dom';
 
 const Catalog = () => {
+    const { gender, category } = useParams();
+    const queryString = gender !== '' && category
+        ? `?gender=${gender}&category=${category}`
+        : '';
+    const { state: products } = useFetch(endpoints.getProducts + queryString);
 
-    const { state: products } = useFetch(endpoints.getProducts);
-    
     return (
         <AllProductsContext.Provider value={products}>
 
@@ -24,7 +26,7 @@ const Catalog = () => {
                                 <div className="row">
 
                                     {
-                                        products.map(p => <ProductCardSmall key={p._id} data={p} />)
+                                        products.map(p => <ProductCardSmall key={p._id} data={p} isSub={Boolean(gender)} />)
                                     }
 
                                 </div>

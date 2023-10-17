@@ -5,7 +5,6 @@ import HeaderNav from './HeaderNav';
 import AtributeNav from './AtributeNav';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -16,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <>
+        <> 
             {
                 isVisible
                     ? <Auth setIsVisibleHandler={setIsVisibleHandler} />

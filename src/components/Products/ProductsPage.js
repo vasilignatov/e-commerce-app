@@ -1,8 +1,10 @@
 import SideBar from './SideBar.js';
 import Catalog from './Catalog/Catalog.js';
 import AllTitleBox from '../Common/AllTitleBox';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+
 const ProductsPage = () => {
+    const { gender } = useParams();
 
     return (
         <>
@@ -13,8 +15,11 @@ const ProductsPage = () => {
                     <div className="row">
 
                         <SideBar />
-
-                        <Catalog />
+                        {
+                            gender
+                                ? <Outlet />
+                                : <Catalog />
+                        }
 
                     </div>
                 </div>
