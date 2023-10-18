@@ -5,7 +5,7 @@ E-commerce project created with MERN stack. This repository represents the Front
 ## Featues
 * ReactJS
 * HTML, CSS, JavaScript, Bootstrap
-* Backend: [e-commerce-rest-api](https://github.com/vasilignatov/e-commerce-rest-api)
+* Back-end: [e-commerce-rest-api](https://github.com/vasilignatov/e-commerce-rest-api)
 * Тhe theme is downloaded from a free site and modified according to my needs
 
 ## Pages 
