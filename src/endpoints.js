@@ -1,4 +1,4 @@
-const host = 'http://localhost:3000'
+const host = 'https://e-commerce-rest-api-oa27.onrender.com/'
 
 export const endpoints = {
     // auth routes
