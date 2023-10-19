@@ -1,6 +1,7 @@
 # E-commerce-app
 
-E-commerce project created with MERN stack. This repository represents the Frontend part of the project, a link to the backend repo can be found below.
+E-commerce project created with MERN stack. This repository represents the Frontend part of the project, a link to the backend repo can be found below.\
+[Live Demo](https://main--playful-daifuku-0487b1.netlify.app/)
 
 ## Featues
 * ReactJS
@@ -33,6 +34,18 @@ The following features will be created in the near future
 * Admin panel - handle orders, update team members, recive messages from contact page
 * Users - check order status, send messages to admin
 * Project deployment
+
+## Testing Account
+**email:** gosho@abv.bg\
+**password:** 123ASDasd
+
+**email:** pesho@abv.bg\
+**password:** 123ASDasd
+
+## Deploy
+- Database: MongoDB Atlas
+- Back-end: Render
+- Front-end: Netlify
 
 ## Usage
 
