@@ -182,4 +182,4 @@ const ProductDetailBtns = () => {
 }
 
 
-export default isAuth(ProductDetailBtns);
+export default ProductDetailBtns

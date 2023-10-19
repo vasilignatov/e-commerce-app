@@ -1,10 +1,12 @@
 import './ProductDetails.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ProductContext from '../../../contexts/ProductContext.js';
 import UserDetailsBtn from './UserDetailsBtn.js'
+import { useAuth } from '../../../contexts/AuthContext';
 
 const ProductDetails = () => {
 
+    const { isAuthenticated } = useAuth();
     const { product } = useContext(ProductContext);
 
     return (
@@ -27,8 +29,9 @@ const ProductDetails = () => {
 
                 <p>{product.description}</p>
 
-
-                <UserDetailsBtn />
+                {
+                    isAuthenticated && <UserDetailsBtn />
+                }
 
             </div>
         </div>
