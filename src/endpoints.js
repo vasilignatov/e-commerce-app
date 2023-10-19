@@ -1,4 +1,4 @@
-const host = 'https://e-commerce-rest-api-oa27.onrender.com/'
+const host = 'https://e-commerce-rest-api-oa27.onrender.com';
 
 export const endpoints = {
     // auth routes
